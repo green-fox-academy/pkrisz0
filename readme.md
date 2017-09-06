@@ -1,1 +1,4 @@
-	[oracle class syllabus]<https://github.com/greenfox-academy/oracle-syllabus.git>
+
+
+
+[oracle class syllabus](https://github.com/greenfox-academy/oracle-syllabus)
