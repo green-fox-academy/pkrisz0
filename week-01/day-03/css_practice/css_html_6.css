@@ -1,0 +1,28 @@
+p {
+    color: white;
+    font-size: 32px;
+    background: rgb(12,235,222);
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 50px;
+    display: inline-block;
+    margin: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+div {
+    height: 160px;
+    margin: 0;
+}
+
+p:nth-of-type(1) {
+    background: rgb(185,12,235)
+}
+
+p:nth-of-type(6) {
+    background: rgb(235,190,12)
+}
