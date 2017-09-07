@@ -1,23 +1,28 @@
+div:nth-of-type(1) {
+    height: 330px;
+    width: 380px;
+    border: solid 15px rgb(66,133,244);
+    margin-bottom: 10px;
+    
+    background: rgb(230,118,118);
+}
+
+div:nth-of-type(2) {
+    height: 300px;
+    width: 380px;
+    border: solid 15px rgb(66,133,244);
+    background: rgb(169,230,230);
+}
+
 p {
     color: white;
     font-size:36px;
     font-family: 'Roboto', sans-serif;
     height: 150px;
     width: 380px;
-    border-right:15px solid rgb(66,133,244);
-    border-left: 15px solid rgb(66,133,244);
     margin: 0;
     text-align: center;
     box-sizing: border-box; 
-    padding-top: 3%;
+    padding-top: 10%;
 }
 
-p:nth-of-type(-n+2) {
-    background: rgb(230,118,118);
-    border-top: 15px solid rgb(66,133,244);
-}
-
-p:nth-of-type(n+2) {
-    background: rgb(116,146,228);
-    border-bottom: 15px solid rgb(66,133,244);
-}
