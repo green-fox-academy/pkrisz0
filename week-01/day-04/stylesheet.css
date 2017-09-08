@@ -1,0 +1,65 @@
+* {
+    border:  0;
+    padding: 0;
+}
+
+body {
+    background-color: #DCD6CD;
+}
+
+.main_box {
+    box-sizing: border-box;
+    background-color: #127731;
+    width: 780px;
+    height: 1000px;
+    position: absolute;
+    left: 25%;
+}
+
+.main_box > div {
+    background-color: #FFE42E; 
+    border: 2px solid red;
+    box-sizing: border-box;
+    margin-top: 20px;
+    position: relative; 
+    float: left;
+    padding: 0px;
+}
+
+/*Profil bar*/
+.title {
+    height: 50px;
+    width: 780px;
+}
+
+
+.input_1, .input_2 {
+    height: 543px;
+    width: 390px; 
+    box-sizing: border-box;   
+} 
+
+.input_3 {
+    width: 780px;
+    height: 230px;
+}
+
+.input_1 > div {
+    background-color: pink;
+    box-sizing: border-box;
+    border: 2px solid black;
+    position: relative; 
+}
+
+.black_1, .black_2 {
+    height: 50px;
+    width: 193px;
+    top: 100px;
+    float: left;
+}
+
+.black_3 {
+    height: 250px;
+    width: 388px;
+    top: 200px;
+}
