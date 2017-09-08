@@ -4,6 +4,7 @@
    <meta charset="utf-8">
    <title>Form excercise</title>
    <link href="stylesheet.css" type="text/css" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Raleway:400,900" rel="stylesheet">
  </head>
  <body>
   <form action="OLDAL IDE" method="POST">
@@ -14,44 +15,45 @@
     <div class="input_1">
       <h2>Személyes adatok</h2>
       
-      <label for="name">Név:</label>
-      <input type="text" id="name" name="user_name">
+      <p>Név*</p>
+      <input type="text" id="name" name="user_name" required>
 
-      <div class="black_1">
-          <label for="dob">Születési éved</label>
+      
+          <p>Születési éved</p>
           <input type="date" id="dob" name="date_of_birth">
-      </div>
-      <div class="black_2">
-        <p>Nemed</p>
-        <input type="radio" id="male" name="gender" />
+      
+     
+        <!--  <p>Nemed</p> -->
+        <!-- <input type="radio" id="male" name="gender" />
         <label for="male">Férfi</label><br/>
         <input type="radio" id="female" name="gender" />
-        <label for="female">Nő</label>
-      </div>
-      <div class="black_3">
+        <label for="female">Nő</label> -->
+   <!--    
+        <ul class="checkbox">
           <p> Milyen márkákat szeretsz?</p>
-          <input type="checkbox" id="adidas" />
-          <label for="adidas">Adidas</label>
-          <input type="checkbox" id="apple" />
-          <label for="apple">Apple</label>
-          <input type="checkbox" id="cola" />
-          <label for="cola">Coca-Cola</label>
-          <input type="checkbox" id="mazda" />
-          <label for="mazda">Mazda</label>
-          <input type="checkbox" id="nike" />
-          <label for="nike">Nike</label></br>
-          <input type="checkbox" id="opel" />
-          <label for="opel">Opel</label>
-          <input type="checkbox" id="rayban" />
-          <label for="rayban">Ray-Ban</label>
-          <input type="checkbox" id="starbucks" />
-          <label for="starbucks">Starbucks</label>
-          <input type="checkbox" id="tesla" />
-          <label for="tesla">Tesla</label>
-          <input type="checkbox" id="yahoo" />
-          <label for="yahoo">Yahoo</label>
+          <li><input type="checkbox" id="adidas" /></li>
+          <li><label for="adidas">Adidas</label></li>
+          <li><input type="checkbox" id="apple" /></li>
+          <li><label for="apple">Apple</label></li>
+          <li><input type="checkbox" id="cola" /></li>
+          <li><label for="cola">Coca-Cola</label></li>
+          <li><input type="checkbox" id="mazda" /></li>
+          <li><label for="mazda">Mazda</label></li>
+          <li><input type="checkbox" id="nike" /></li>
+          <li><label for="nike">Nike</label></li>
+          <li><input type="checkbox" id="opel" /></li>
+          <li><label for="opel">Opel</label></li>
+          <li><input type="checkbox" id="rayban" /></li>
+          <li><label for="rayban">Ray-Ban</label></li>
+          <li><input type="checkbox" id="starbucks" /></li>
+          <li><label for="starbucks">Starbucks</label></li>
+          <li><input type="checkbox" id="tesla" /></li>
+          <li><label for="tesla">Tesla</label></li>
+          <li><input type="checkbox" id="yahoo" /></li>
+          <li><label for="yahoo">Yahoo</label></li>
           <p> Többet is választhatsz !</p>
-      </div>
+        </ul> -->
+      
     </div>
     <div class="input_2">
       <h2>Kapcsolat</h2>
@@ -61,18 +63,18 @@
       <input type="email" placeholder="nev@domain.hu" required />
       <p> Facebook profilod</p>
       <input type="url" placeholder="http://facebook.com/.." required />
-      <p> twitter profilod</p>
+      <p> Twitter profilod</p>
       <input type="url" placeholder="http://twitter.com/.." required />
       <p>Milyen házban laksz?</p>
       <select>
-        <option value="palota">Válassz típust!</option>
+        <option value="">Válassz típust!</option>
         <option value="palota">Palota</option>
         <option value="sator">Sátor</option>
         <option value="tanya">Tanya</option>
       </select>
     </div>
     <div class="input_3">
-      <p>Bemutatkzás*</p>
+      <p>Bemutatkozás*</p>
       <textarea id="msg" name="user_message">írj magadról pár mondatot!</textarea>
     </div>
   </form>
