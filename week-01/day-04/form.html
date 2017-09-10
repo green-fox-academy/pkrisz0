@@ -20,7 +20,7 @@
 
       <div class="birthbox"> 
         <p>Születési éved</p>
-        <input type="date" id="dob" name="date_of_birth">
+        <input type="date" id="dob" name="date_of_birth" placeholder="Date">
       </div>
 
       <div class="genderbox">
@@ -71,7 +71,7 @@
       <input type="url" placeholder="http://twitter.com/.." required />
       <p>Milyen házban laksz?</p>
       <select>
-        <option value="">Válassz típust!</option>
+        <option value="x">Válassz típust!</option>
         <option value="palota">Palota</option>
         <option value="sator">Sátor</option>
         <option value="tanya">Tanya</option>
@@ -81,9 +81,11 @@
       <p>Bemutatkozás*</p><br>
       <textarea id="msg" name="user_message">írj magadról pár mondatot!</textarea>
       <p>CV Feltöltése</p>
+      <label for="file-upload" class="custom-file-upload">FÁLJ KIVÁLASZTÁSA</label>
+      <input id="file-upload" type="file"/>
+      <br>
       <input type="checkbox" id="accept" />
-      <label for="accept">Eladom a lelkem a <a href="#">felhasználási feltételek</a> elolvasása nélkül !"</label>
-    
+      <label for="accept">Eladom a lelkem a <a href="#">felhasználási feltételek</a> elolvasása nélkül !</label>
     </div>
   </form>
   </div>

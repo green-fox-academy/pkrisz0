@@ -17,7 +17,6 @@ body {
 
 .main_box > div { 
     box-sizing: border-box;
-    margin-top: 20px;
     position: relative; 
     float: left;
 }
@@ -59,17 +58,16 @@ body {
 
 /*first three titles + small titles*/
 
-p, h1, h2, label {  
+p, h1, h2, label, .brands p:last-child, .custom-file-upload {  
     font-family: 'Raleway', sans-serif;
     font-weight: lighter;
 }
 
 h1 {
-    margin: 0px;
     padding-left: 28px; 
 }
 
-h2 {
+h2, .custom-file-upload {
     color: white;
     background-color: #938C97;
     border-radius: 2px;
@@ -95,11 +93,13 @@ label {
 
 /*input fields*/
 
-.input_2 > input, input[id="name"], input[type="date"] {
+.input_2 > input, input[id="name"], input[type="date"], select {
     width: 286px;
     border-radius: 2px;
     height: 40px;
     padding-top: 0px;
+    padding-left: 10px;
+    box-sizing: border-box;
 }
 
 /*input field for birth date*/
@@ -113,6 +113,7 @@ input[type="date"] {
     margin: 0px;
     margin-top: 0px;
 }
+
 
 .genderbox {
     padding-left: 8px;
@@ -135,15 +136,19 @@ input[type="date"] {
    columns: 2;
 }
 
-span {
+.brandlist > input, .brandlist > label {
+    margin-top: 10px;
+}
+
+span, select > option:first-child {
     color: gray;
+    font-weight: lighter;
 }
 
 /*text box*/
 
 .input_3 > p {
     margin: 0;
-    padding-top: 0;
 }
 
 #msg {
@@ -153,4 +158,27 @@ span {
 
 .checkbox {
     display: inline;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 2px;
+    width: 210px;
+    background-color: #938C97;
+    font-size: 18px;
+}
+
+.input_3 > label, .input_3 > input {
+    margin-top: 25px;
+}
+
+select {
+    width: 284px;
 }
