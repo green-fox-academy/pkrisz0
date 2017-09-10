@@ -10,7 +10,7 @@ body {
     box-sizing: border-box;
     background-color:  #DCD6CD;
     width: 680px;
-    height: 900px;
+    height: 1000px;
     position: absolute;
     left: 25%;
 }
@@ -44,12 +44,22 @@ body {
 
 }
 
+.birthbox, .genderbox {
+    height: 50px;
+    width: 143px;
+    display: table-cell;
+    padding-top: 10px;
+    box-sizing: border-box;
+}
 
+.brands {
+    margin-top: 15px;
+}
 
 
 /*first three titles + small titles*/
 
-p, h1, h2 {  
+p, h1, h2, label {  
     font-family: 'Raleway', sans-serif;
     font-weight: lighter;
 }
@@ -79,44 +89,68 @@ p {
     padding-top: 10px;
 }
 
+label {
+    font-size: 14px;
+}
+
 /*input fields*/
 
-input {
+.input_2 > input, input[id="name"], input[type="date"] {
     width: 286px;
     border-radius: 2px;
     height: 40px;
+    padding-top: 0px;
 }
 
 /*input field for birth date*/
+
 input[type="date"] {
-    width: 140px;
+    width: 120px;
+    margin-top: 10px;
+}
+
+.birthbox > p, .genderbox > p {
+    margin: 0px;
+    margin-top: 0px;
+}
+
+.genderbox {
+    padding-left: 8px;
 }
 
 /*male - female buttons*/
 
+.genderbox label:nth-of-type(2) {
+    padding-left: 28px;
+}
+
+.genderbox input:nth-of-type(2) {
+    position: relative;
+    left: 27px;
+}
+
 /*brands list*/
 
+.brandlist {
+   columns: 2;
+}
+
+span {
+    color: gray;
+}
+
 /*text box*/
+
+.input_3 > p {
+    margin: 0;
+    padding-top: 0;
+}
 
 #msg {
     height: 160px;
     width:  620px;
 }
 
-/* ul.checkbox li { 
-    border: 1px transparent solid; 
-    display:inline-block;
+.checkbox {
+    display: inline;
 }
-
-
-ul.checkbox li, .checkbox label {
-    height: 20px;
-    width: 80px;
-    float: left;
-}
-
-.checkbox input {
-    height: 20px;
-    width: 20px;
-} */
-

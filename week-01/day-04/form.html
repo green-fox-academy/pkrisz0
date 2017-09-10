@@ -18,43 +18,47 @@
       <p>Név*</p>
       <input type="text" id="name" name="user_name" required>
 
-      
-          <p>Születési éved</p>
-          <input type="date" id="dob" name="date_of_birth">
-      
-     
-        <!--  <p>Nemed</p> -->
-        <!-- <input type="radio" id="male" name="gender" />
-        <label for="male">Férfi</label><br/>
+      <div class="birthbox"> 
+        <p>Születési éved</p>
+        <input type="date" id="dob" name="date_of_birth">
+      </div>
+
+      <div class="genderbox">
+        <p>Nemed</p><br>
         <input type="radio" id="female" name="gender" />
-        <label for="female">Nő</label> -->
-   <!--    
-        <ul class="checkbox">
+        <label for="female">nő</label>
+        <input type="radio" id="male" name="gender" />
+        <label for="male">férfi</label><br/> 
+      </div>
+
+      <div class="brands">
           <p> Milyen márkákat szeretsz?</p>
-          <li><input type="checkbox" id="adidas" /></li>
-          <li><label for="adidas">Adidas</label></li>
-          <li><input type="checkbox" id="apple" /></li>
-          <li><label for="apple">Apple</label></li>
-          <li><input type="checkbox" id="cola" /></li>
-          <li><label for="cola">Coca-Cola</label></li>
-          <li><input type="checkbox" id="mazda" /></li>
-          <li><label for="mazda">Mazda</label></li>
-          <li><input type="checkbox" id="nike" /></li>
-          <li><label for="nike">Nike</label></li>
-          <li><input type="checkbox" id="opel" /></li>
-          <li><label for="opel">Opel</label></li>
-          <li><input type="checkbox" id="rayban" /></li>
-          <li><label for="rayban">Ray-Ban</label></li>
-          <li><input type="checkbox" id="starbucks" /></li>
-          <li><label for="starbucks">Starbucks</label></li>
-          <li><input type="checkbox" id="tesla" /></li>
-          <li><label for="tesla">Tesla</label></li>
-          <li><input type="checkbox" id="yahoo" /></li>
-          <li><label for="yahoo">Yahoo</label></li>
-          <p> Többet is választhatsz !</p>
-        </ul> -->
-      
+          <div class="brandlist">
+            <input type="checkbox" id="adidas" />
+            <label for="adidas">Adidas</label><br>
+            <input type="checkbox" id="apple" />
+            <label for="apple">Apple</label><br>
+            <input type="checkbox" id="cola" />
+            <label for="cola">Coca-Cola</label><br>
+            <input type="checkbox" id="mazda" />
+            <label for="mazda">Mazda</label><br>
+            <input type="checkbox" id="nike" />
+            <label for="nike">Nike</label><br>
+            <input type="checkbox" id="opel" />
+            <label for="opel">Opel</label><br>
+            <input type="checkbox" id="rayban" />
+            <label for="rayban">Ray-Ban</label><br>
+            <input type="checkbox" id="starbucks" />
+            <label for="starbucks">Starbucks</label><br>
+            <input type="checkbox" id="tesla" />
+            <label for="tesla">Tesla</label><br>
+            <input type="checkbox" id="yahoo" />
+            <label for="yahoo">Yahoo</label><br>
+          </div>
+          <span><p> Többet is választhatsz !</p></span>
+      </div>
     </div>
+
     <div class="input_2">
       <h2>Kapcsolat</h2>
       <p> Telefonszám*</p>
@@ -74,8 +78,12 @@
       </select>
     </div>
     <div class="input_3">
-      <p>Bemutatkozás*</p>
+      <p>Bemutatkozás*</p><br>
       <textarea id="msg" name="user_message">írj magadról pár mondatot!</textarea>
+      <p>CV Feltöltése</p>
+      <input type="checkbox" id="accept" />
+      <label for="accept">Eladom a lelkem a <a href="#">felhasználási feltételek</a> elolvasása nélkül !"</label>
+    
     </div>
   </form>
   </div>
