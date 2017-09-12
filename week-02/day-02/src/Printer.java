@@ -3,8 +3,9 @@ public class Printer {
         printer("not", "sure", "i got this correct");
     }
 
-    public static void printer(String first,String second, String third){
-        System.out.println("\""+first+"\", "+"\""+second+"\", "+"\""+third+"\"");
+    public static void printer(String... input){
+        for(String i: input)
+        System.out.println(i);
     }
 }
 
