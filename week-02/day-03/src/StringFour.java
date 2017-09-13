@@ -1,10 +1,10 @@
 public class StringFour {
     public static void main(String[] args) {
-        String todoText = " - Buy milk\n";
+        String todoText = "\n - Buy milk\n";
 
         String todoAll = todoText.concat(" - Download games\n".concat(" - Diablo\n"));
 
-        System.out.println(todoAll);
+        System.out.println("My todo" + todoAll);
     }
 }
 
