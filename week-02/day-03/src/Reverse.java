@@ -1,21 +1,29 @@
 public class Reverse {
     public static void main(String[] args) {
-        String todoText = "\n - Buy milk\n";
+        String reversed = ".eslaf eb t'ndluow ecnetnes siht ,dehctiws erew eslaf dna eurt fo sgninaem eht fI";
 
-        String todoAll = todoText.concat(" - Download games\n".concat("\t - Diablo\n"));
+        // solution 1
+        char[] letters = new char[reversed.length()];
 
-        System.out.println("My todo" + todoAll);
+        for(int i = 0; i < reversed.length(); i++){
+            letters[i] = reversed.charAt(i);
+        }
+
+        String dummytwo = "";
+
+        for(int i = reversed.length() - 1; i > 0 ; i--) {
+             char dummy = (letters[i]);
+             dummytwo = dummytwo.concat(String.valueOf(dummy));
+        }
+
+        reversed = dummytwo;
+
+        System.out.println(reversed);
+
     }
 }
 
-// Add "My todo:" to the beginning of the todoText
-// Add " - Download games" to the end of the todoText
-// Add " - Diablo" to the end of the todoText but with indention
-
-// Expected outpt:
-
-// My todo:
-//  - Buy milk
-//  - Download games
-//  - Diablo
+// Create a function that can reverse a String, which is passed as the parameter
+// Use it on this reversed string to check it!
+// Try to solve this using charAt() first, and optionally anything else after.
 

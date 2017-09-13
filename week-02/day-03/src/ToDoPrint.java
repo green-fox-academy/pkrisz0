@@ -1,20 +1,20 @@
 public class ToDoPrint {
     public static void main(String[] args) {
-        String reversed = ".eslaf eb t'ndluow ecnetnes siht ,dehctiws erew eslaf dna eurt fo sgninaem eht fI";
+        String todoText = "\n - Buy milk\n";
 
-        char[] letters = new char[reversed.length()];
+        String todoAll = todoText.concat(" - Download games\n".concat("\t - Diablo\n"));
 
-        for(int i = 0; i < reversed.length(); i++){
-            letters[i] = reversed.charAt(i);
-        }
-
-        for(int i = 0; i < reversed.length(); i++) {
-            System.out.print(letters[(letters.length - 1) - i]);
-        }
+        System.out.println("My todo" + todoAll);
     }
 }
 
-// Create a function that can reverse a String, which is passed as the parameter
-// Use it on this reversed string to check it!
-// Try to solve this using charAt() first, and optionally anything else after.
+// Add "My todo:" to the beginning of the todoText
+// Add " - Download games" to the end of the todoText
+// Add " - Diablo" to the end of the todoText but with indention
 
+// Expected outpt:
+
+// My todo:
+//  - Buy milk
+//  - Download games
+//  - Diablo
