@@ -12,7 +12,6 @@ public class QuoteSawp {
         //print it #1
 
         String nicerlist = Arrays.toString(list.toArray()).replace("[", "").replace("]", "").replace(",","");
-
         System.out.println(nicerlist);
 
         //or print like this and keep the relevant comma
@@ -20,7 +19,6 @@ public class QuoteSawp {
         for (int i = 0; i < list.size(); i++) {
             System.out.print(list.get(i) + " ");
         }
-
     }
 }
 
@@ -31,4 +29,3 @@ public class QuoteSawp {
 // Also, print the sentence to the output with spaces in between.
 
 // correct quote: What I cannot create, I do not understand.
-
