@@ -5,12 +5,7 @@ public class TakesLonger {
         //positive lookaround for the win!!! will totally demo this
         String[] parts = quote.split("(?<=t )",2);
 
-        String partone = parts[0];
-        String parttwo = parts[1];
-
-        String addition = "always takes longer than";
-
-        String fin = partone.concat(addition.concat(parttwo));
+        String fin = parts[0].concat("always takes longer than ".concat(parts[1]));
 
         System.out.println(fin);
     }
