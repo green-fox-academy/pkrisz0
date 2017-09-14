@@ -7,38 +7,27 @@ public class DrawDiagonal {
         Scanner userInput1 = new Scanner(System.in);
         int number = userInput1.nextInt();
 
-        //top
-
         for (int i = 0; i < number; i++) {
-            System.out.print("%");
-        }
-        System.out.println();
-
-        //middle
-
-        String space = "";
-
-        for (int i = 0; i < number - 2; i++) {
-            for (int j = 0; j < number - 2; j++) {
-
-                //  diagonal
-                if (i == 0) {
-                    System.out.println("x");
-
-                    if (j == i) {
-                        System.out.print(space + "%");
-                        space += " ";
-                    }
+            for (int j = 0; j < number; j++) {
+                if(j == 0){
+                    System.out.print("%");
+                } else if(i == 0){
+                    System.out.print("%");
+                } else if(i == number - 1){
+                    System.out.print("%");
+                } else if(j == number - 1){
+                    System.out.print("%");
+                } else if(j == i){
+                    System.out.print("%");
+                } else {
+                    System.out.print(" ");
                 }
-            }
-        }
-            //bottom
-            for (int i = 0; i < number; i++) {
-                System.out.print("%");
             }
             System.out.println();
         }
     }
+}
+
 
 // Write a program that reads a number from the standard input, then draws a
 // square like this:
