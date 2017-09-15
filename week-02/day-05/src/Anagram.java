@@ -1,22 +1,25 @@
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Anagram {
     public static void main(String[] args) {
 
-        anagram("dog", "god");
+        anagram("god", "dog");
     }
 
-    public static void anagram(String inputone, String inputtwo) {
+    public static boolean anagram(String inputone, String inputtwo) {
 
-        String reversed = "";
+        if (inputone.length() != inputtwo.length()) return false;
 
-        for(int i = inputone.length() - 1; i >= 0 ; i--){
-            char dummy = inputone.charAt(i);
-            reversed = reversed.concat(String.valueOf(dummy));
+        char[] c1 = inputone.toCharArray();
+        char[] c2 = inputtwo.toCharArray();
+
+        Arrays.sort(c1);
+        Arrays.sort(c2);
+
+        for(int i = 0; i < c1.length; i++) {
+            if(c1[i] != c2[i]) return false;
         }
-        System.out.println(reversed.equals(inputtwo));
+
+        return true;
     }
 }
-
-/// this is not good, anagram is any variation of letters, not reverse
