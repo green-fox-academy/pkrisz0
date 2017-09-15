@@ -7,7 +7,7 @@ public class Anagram {
         anagram("dog", "god");
     }
 
-    private static void anagram(String inputone, String inputtwo) {
+    public static void anagram(String inputone, String inputtwo) {
 
 
         String reversed = "";
