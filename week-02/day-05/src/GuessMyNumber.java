@@ -4,32 +4,48 @@ import java.util.Scanner;
 public class GuessMyNumber {
     public static void main(String[] args) {
 
-        int thenumber = numberGenerator();
+        System.out.println("Add the range (min followed by max) you wanna play the guessing game in:");
+        Scanner userInput1 = new Scanner(System.in);
+        int min = userInput1.nextInt();
+        int max = userInput1.nextInt();
 
-        System.out.println("Guess the number, punk!");
+        numberGenerator(min, max);
+
+        int thenumber = numberGenerator(min, max);
+
+        System.out.println("Guess the number, punk! You get 5 tries.");
 
         theGame(0, thenumber);
     }
 
 
-    public static int numberGenerator() {
+    public static int numberGenerator(int min, int max) {
         Random rand = new Random();
-        int thenumber = rand.nextInt((100 - 1) + 1);
+        int thenumber = rand.nextInt((max - min) + min);
         return thenumber;
     }
 
     public static void theGame(int guess, int thenumber) {
-        while (thenumber != guess) {
 
-            Scanner userInput1 = new Scanner(System.in);
-            guess = userInput1.nextInt();
+        int lives = 5;
 
-            if (guess == thenumber) {
-                System.out.println("Congratulations. You won!");
-            } else if (guess < thenumber) {
-                System.out.println("Too low. Guess again!");
-            } else if (guess > thenumber) {
-                System.out.println("Too high. Guess again!");
+        while( lives > 0) {
+
+            while (thenumber != guess) {
+                lives--;
+
+                Scanner userInput1 = new Scanner(System.in);
+                guess = userInput1.nextInt();
+
+                if(lives == 0){
+                    System.out.println("Game over!");
+                } else if (guess == thenumber) {
+                    System.out.println("Congratulations. You won!");
+                } else if (guess < thenumber) {
+                    System.out.println("Too low. Guess again! You have " + lives + " lives left." );
+                } else if (guess > thenumber && lives >= 1) {
+                    System.out.println("Too high. Guess again! You have " + lives + " lives left");
+                }
             }
         }
     }
