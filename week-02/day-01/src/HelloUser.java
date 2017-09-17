@@ -7,9 +7,10 @@ public class HelloUser {
         
         System.out.println("Hello, User! Please type in your username");
 
-        Scanner username = new Scanner(System.in);
-        String userInput1 = username.nextLine();
+        Scanner userInput1 = new Scanner(System.in);
+        String userName = userInput1.nextLine();
 
-        System.out.println("Hello," + userInput1 + "!");
+        System.out.println("Hello," + userName + "!");
     }
 }
+
