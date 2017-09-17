@@ -2,25 +2,18 @@ import java.util.Scanner;
 
 public class AverageOfInput {
     public static void main(String[] args) {
+        System.out.println("Please enter five random numbers!");
+        int sum = 0;
 
-        int one, two, three, four, five;
+        for (int i = 1; i < 6; i++) {
+            System.out.println("Number " + i);
+            Scanner userInput = new Scanner(System.in);
+            int number = userInput.nextInt();
 
-        System.out.println("Please enter five random numbers!(Press enter after each)");
-        Scanner userInputOne = new Scanner(System.in);
-        one = userInputOne.nextInt();
-        Scanner userInputTwo = new Scanner(System.in);
-        two = userInputTwo.nextInt();
-        Scanner userInputThree = new Scanner(System.in);
-        three = userInputThree.nextInt();
-        Scanner userInputFour = new Scanner(System.in);
-        four = userInputFour.nextInt();
-        Scanner userInputFive = new Scanner(System.in);
-        five = userInputFive.nextInt();
-
-        int sum = one + two + three + four + five;
+            sum += number;
+        }
 
         double average = sum / 5;
-
         System.out.println("Sum: " + sum + "," + " Average: " + average);
     }
 }
