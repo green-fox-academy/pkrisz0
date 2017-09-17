@@ -2,24 +2,21 @@ import java.util.Scanner;
 
 public class PartyIndicator {
     public static void main(String[] args) {
-
-        int girls, boys;
-
         System.out.println("How many girls are coming tonight?");
         Scanner userInputOne = new Scanner(System.in);
-        girls = userInputOne.nextInt();
+        int girls = userInputOne.nextInt();
 
         System.out.println("How many boys?");
         Scanner userInputTwo = new Scanner(System.in);
-        boys = userInputTwo.nextInt();
+        int boys = userInputTwo.nextInt();
 
-        if(girls == 0){
+        if (girls == 0) {
             System.out.println("Sausage party");
-        }else if((girls + boys) > 20 && (girls != boys)){
+        } else if ((girls + boys) > 20 && (girls != boys)) {
             System.out.println("Quite cool party!");
-        }else if ((girls + boys) < 20){
+        } else if ((girls + boys) < 20) {
             System.out.println("Average party...");
-        }else if( girls == boys && (girls + boys) > 20){
+        } else if ( girls == boys && (girls + boys) > 20) {
             System.out.println("The party is exellent!");
         }
     }
@@ -39,3 +36,4 @@ public class PartyIndicator {
 //
 // It should print: Sausage party
 // If no girls are coming, regardless the count of the people
+
