@@ -6,11 +6,12 @@ public class MileToKmConverter {
         // then it converts that value to miles and prints it
 
         System.out.println("Please add the distance in kilometers without decimals: ");
-        Scanner kilometers = new Scanner(System.in);
-        int userInput2 = kilometers.nextInt();
+        Scanner userInput2 = new Scanner(System.in);
+        int kilometers = userInput2.nextInt();
 
-        double miles = userInput2 * 0.621371192;
+        double miles = kilometers * 0.621371192;
 
         System.out.println("The distance in miles is: " + miles);
     }
 }
+
