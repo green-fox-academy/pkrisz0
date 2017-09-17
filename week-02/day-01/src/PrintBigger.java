@@ -10,7 +10,7 @@ public class PrintBigger {
 
         if (one > two) {
              System.out.println("The first one was bigger.");
-        } else if (one == two){
+        } else if (one == two) {
              System.out.println("You have entered the same number twice -.-");
         } else {
              System.out.println("The second one is bigger.");
