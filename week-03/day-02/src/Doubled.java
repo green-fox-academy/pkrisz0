@@ -24,6 +24,9 @@ public class Doubled {
                 for (int i = 0; i < content.get(j).length(); i++) {
                     if (i == 0) {
                         result += String.valueOf(content.get(j).charAt(i));
+                        //figure out what to do when its a double letter
+                    } else if (i > 2 && content.get(j).charAt(i - 1) == content.get(j).charAt(i) && content.get(j).charAt(i) == content.get(j).charAt(i - 3)) {
+                        result += String.valueOf(content.get(j).charAt(i));
                     } else if (i > 0 && content.get(j).charAt(i - 1) != content.get(j).charAt(i))  {
                         result += String.valueOf(content.get(j).charAt(i));
                     }
