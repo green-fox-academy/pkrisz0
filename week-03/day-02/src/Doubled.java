@@ -15,29 +15,31 @@ public class Doubled {
         Path filepath = Paths.get(inputFile);
         String fin = "";
         try {
-           List<String> content = Files.readAllLines(filepath);
+            List<String> content = Files.readAllLines(filepath);
 
-           //adding each line to an array
-           String[] lines = new String[content.size()];
+            //adding each line to an array
+            String[] lines = new String[content.size()];
             for (int i = 0; i < content.size(); i++) {
                 lines[i] = content.get(i);
             }
 
-
-           //removing duplications from each line
+            //removing duplications from each line
+            String[] noduplication = new String[lines.length];
             String result = "";
-
-            for (int i = 0; i < lines[0].length(); i++) {
-                if(i == 0){
-                    result += String.valueOf(lines[0].charAt(i));
-                } else if(i > 0 && lines[0].charAt(i) != lines[0].charAt(i - 1)) {
-                    result += String.valueOf(lines[0].charAt(i));
+            for (int j = 0; j < lines.length; j++) {
+                for (int i = 0; i < lines[j].length(); i++) {
+                    if (i == 0) {
+                        result += String.valueOf(lines[j].charAt(i));
+                    } else if (i > 0 && lines[j].charAt(i) != lines[j].charAt(i - 1)) {
+                        result += String.valueOf(lines[j].charAt(i));
+                    }
                 }
+
+                noduplication[j] = result;
+                result = "";
             }
 
-            lines[0] = result;
-
-            System.out.println(lines[0]);
+            
 
         } catch (IOException e) {
 
