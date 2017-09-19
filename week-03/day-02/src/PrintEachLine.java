@@ -10,8 +10,8 @@ public class PrintEachLine {
       try {
           Path filepath = Paths.get("my-file.txt");
           List<String> lines = Files.readAllLines(filepath);
-          System.out.println(lines.get(0));
-      } catch (Exception e) {
+          System.out.println(lines);
+      } catch (IOException e) {
           System.out.println("Unable to read file: my-file.txt");
       }
   }
