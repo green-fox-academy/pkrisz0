@@ -9,7 +9,8 @@ public class WriteMultipleLines{
     public static void main(String[] args) {
       printer("src/my-filetwo.txt", "bananas", 4);
     }
-    public static String printer (String path, String word, int number){
+
+    public static void printer (String path, String word, int number){
         Path filepath = Paths.get(path);
         List<String> contents = new ArrayList();
 
@@ -21,8 +22,6 @@ public class WriteMultipleLines{
             Files.write(filepath, contents);
         } catch (IOException e) {
         }
-
-        return null;
     }
 }
 
@@ -34,3 +33,4 @@ public class WriteMultipleLines{
 // So if the word is "apple" and the number is 5, than it should write 5 lines
 // to the file and each line should be "apple"
 // The function should not raise any error if it could not write the file.
+
