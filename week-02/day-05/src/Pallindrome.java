@@ -1,10 +1,10 @@
 public class Pallindrome {
     public static void main(String[] args) {
 
-        createpallindrome("123");
+        createPallindrome("123");
     }
 
-    public static void createpallindrome(String inputone) {
+    public static void createPallindrome(String inputone) {
 
         String reversed = "";
 
