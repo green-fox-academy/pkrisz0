@@ -15,7 +15,6 @@ public class CountLines {
             Path filepath = Paths.get(filename);
             List<String> lines = Files.readAllLines(filepath);
             int count = lines.size();
-            System.out.println(count);
             return count;
         } catch (IOException e) {
             return 0;
