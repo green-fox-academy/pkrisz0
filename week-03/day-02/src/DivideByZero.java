@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class DivideByZero {
+    public static void main(String[] args) {
+        System.out.println("Add the number you want to divide 10 with");
+        Scanner input = new Scanner(System.in);
+        int divisor = input.nextInt();
+        try {
+            int result = 10 / divisor;
+            System.out.println(result);
+        } catch (ArithmeticException e){
+            System.out.println("Can't divide by zero!");
+        }
+    }
+}
+
+// create a function that takes a number
+// divides ten with it,
+// and prints the result.
+// it should print "fail" if the parameter is 0
+
