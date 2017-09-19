@@ -39,7 +39,20 @@ public class Doubled {
                 result = "";
             }
 
-            
+
+            //turn array into arraylist for printing
+
+            List<String> contents = new ArrayList();
+
+            for (int i = 0; i < noduplication.length; i++) {
+                contents.add(noduplication[i]);
+            }
+
+
+            //print to new
+            Path filePathOut = Paths.get("src/duplicated-chars-decoded.txt");
+            Files.write(filePathOut, contents);
+
 
         } catch (IOException e) {
 
