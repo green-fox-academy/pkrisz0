@@ -25,7 +25,7 @@ public class LinePlay {
 
 // reproduce this:
 // [https://github.com/greenfox-academy/teaching-materials/blob/master/workshop/drawing/line-play/r1.png]
-    
+
 //    Don't touch the code below
     static int WIDTH = 320;
     static int HEIGHT = 343;
