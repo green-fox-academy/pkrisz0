@@ -16,7 +16,6 @@ public class Triangles {
         int x3 = 100 + side / 2;
         int y23 = 25 + (int)z;
 
-
         //line 1
         int xpoints[] = {100, x2, x3};
         int ypoints[] = {25, y23, y23};
@@ -39,6 +38,15 @@ public class Triangles {
 
         graphics.drawPolygon(xpoints3, ypoints3, npoints3);
 
+
+        /*
+        now put this into a function
+        no of triangles increases +1 /iteration
+        y coordinates increase by z each iteration
+        x2y2 and x3y3 become x1y1 in the new line
+        left x3y3 will be the same as right x2y2
+        size to the left iterates w -side/2 to the right with +side/2
+        */
     }
 
     public static double cubeRoot(int a) {
