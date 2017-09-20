@@ -13,40 +13,20 @@ public class FunctionToCenter {
     }
 
     public static void center (Graphics c, int x, int y){
-        c.setColor(Color.GREEN);
+        c.setColor(Color.RED);
         c.drawLine(x,y,WIDTH / 2,HEIGHT / 2 );
 
         //fill the thing
 
-        //top
         int ex = 0;
         for (int i = 0; i < WIDTH / 20 + 1; i++) {
-             c.setColor(Color.RED);
-             c.drawLine(ex, 0, WIDTH / 2, HEIGHT / 2);
+             c.setColor(Color.GREEN);
+             c.drawLine(ex, 0, WIDTH / 2, HEIGHT / 2); //top
+             c.drawLine(0, ex, WIDTH / 2, HEIGHT / 2); //right
+             c.drawLine(WIDTH, ex, WIDTH / 2, HEIGHT / 2); //left
+             c.drawLine(ex, HEIGHT, WIDTH / 2, HEIGHT / 2);//bottom
+
              ex += 20;
-        }
-        //right
-        int why = 0;
-        for (int i = 0; i < HEIGHT / 20 + 1; i++) {
-            c.setColor(Color.RED);
-            c.drawLine(0, why, WIDTH / 2, HEIGHT / 2);
-            why += 20;
-        }
-
-        //left
-        int extwo = 0;
-        for (int i = 0; i < HEIGHT / 20 + 1; i++) {
-            c.setColor(Color.BLUE);
-            c.drawLine(WIDTH, extwo, WIDTH / 2, HEIGHT / 2);
-            extwo += 20;
-        }
-
-        //bottom
-        int whytwo = 0;
-        for (int i = 0; i < HEIGHT / 20; i++) {
-            c.setColor(Color.YELLOW);
-            c.drawLine(whytwo, HEIGHT, WIDTH / 2, HEIGHT / 2);
-            whytwo += 20;
         }
     }
 
