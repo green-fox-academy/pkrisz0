@@ -10,25 +10,35 @@ public class Checkerboard {
       // fill the canvas with a checkerboard pattern.
         int size = 20;
         int x = 0;
+        int y = 0;
 
-        for (int i = 0; i < WIDTH / 20 + 1; i++) {
-            graphics.setColor(Color.WHITE);
-            graphics.fillRect(x, 0, size, size);
-            graphics.setColor(Color.BLACK);
-            graphics.fillRect(x + size, 0, size, size);
-            x += (size * 2);
+
+        for (int j = 0; j < HEIGHT / 20 + 1; j++) {
+            for (int i = 0; i < WIDTH / 20 + 1; i++) {
+                graphics.setColor(Color.WHITE);
+                graphics.fillRect(x, y, size, size);
+                graphics.setColor(Color.BLACK);
+                graphics.fillRect(x + size, y, size, size);
+                x += (size * 2);
+            }
+            y += 40;
+            x = 0;
         }
 
-        int z = 0;
+        int xtwo = 0;
+        int ytwo = 20;
 
-        for (int i = 0; i < WIDTH / 20 + 1; i++) {
-            graphics.setColor(Color.BLACK);
-            graphics.fillRect(z, 20, size, size);
-            graphics.setColor(Color.WHITE);
-            graphics.fillRect(z + size, 20, size, size);
-            z += (size * 2);
+        for (int j = 0; j < HEIGHT / 20 + 1; j++) {
+            for (int i = 0; i < WIDTH / 20 + 1; i++) {
+                graphics.setColor(Color.BLACK);
+                graphics.fillRect(xtwo, ytwo, size, size);
+                graphics.setColor(Color.WHITE);
+                graphics.fillRect(xtwo + size, ytwo, size, size);
+                xtwo += (size * 2);
+            }
+            ytwo += 40;
+            xtwo = 0;
         }
-
     }
 
 //    Don't touch the code below
