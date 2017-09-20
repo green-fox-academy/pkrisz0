@@ -12,14 +12,9 @@ public class LinePlay {
         for (int i = 0; i < WIDTH / 20; i++) {
             graphics.setColor(Color.MAGENTA);
             graphics.drawLine(x,0,WIDTH,x);
-            x += 20;
-        }
-
-        int y = 20;
-        for (int i = 0; i < WIDTH / 20; i++) {
             graphics.setColor(Color.GREEN);
-            graphics.drawLine(0, y, y, HEIGHT);
-            y += 20;
+            graphics.drawLine(0, x, x, HEIGHT);
+            x += 20;
         }
     }
 
