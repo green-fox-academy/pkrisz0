@@ -1,4 +1,11 @@
 public class Teacher {
+    String name;
+
+
+    public Teacher (String name){
+        this.name = name;
+    }
+
     public void teach(Student student){
         student.learn();
     }
@@ -7,7 +14,4 @@ public class Teacher {
 
     }
 
-    public static void main(String[] args) {
-
-    }
 }
