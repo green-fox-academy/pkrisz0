@@ -3,12 +3,8 @@ public class Car {
     int capacity;
 
 
-    public Car (){
-        this.gasAmount = 0;
-        this.capacity = 0;
-    }
-
-    public static void main(String[] args) {
-        Car limo = new Car();
+    public Car (int gasAmount, int capacity){
+        this.gasAmount = gasAmount;
+        this.capacity = capacity;
     }
 }

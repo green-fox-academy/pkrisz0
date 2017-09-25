@@ -2,12 +2,14 @@ public class Station {
     int gasAmount;
 
 
-    public void refill(Car limo) {
-        this.gasAmount -= limo.capacity;
-        limo.gasAmount += 100;
+    public Station(int gasAmount) {
+        this.gasAmount = gasAmount;
     }
 
-    public static void main(String[] args) {
-        
+    public int refill(Car car) {
+        this.gasAmount -= car.capacity;
+        car.gasAmount += (car.capacity - car.gasAmount);
+        return car.capacity;
     }
+
 }
