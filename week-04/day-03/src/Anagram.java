@@ -1,22 +1,25 @@
-public class Anagram {
-    String one;
-    String two;
+import java.util.Arrays;
 
-    public Anagram(String one, String two) {
-        this.one = one;
-        this.two = two;
+public class Anagram {
+
+    public Anagram() {
     }
 
-    public boolean anagramChecker() {
-        String reverse = "";
-        for (int i = one.length() - 1; i >= 0; i--) {
-            reverse += String.valueOf(one.charAt(i));
-        }
-        if (reverse.equals(two)) {
-            return true;
-        }
-        else {
+    public boolean anagramChecker(String one, String two) {
+        if (one.length() != two.length()) return false;
+
+        char[] c1 = one.toCharArray();
+        char[] c2 = two.toCharArray();
+
+        Arrays.sort(c1);
+        Arrays.sort(c2);
+
+        for(int i = 0; i < c1.length; i++) {
+            if(c1[i] != c2[i])
             return false;
         }
+
+        return true;
+
     }
 }
