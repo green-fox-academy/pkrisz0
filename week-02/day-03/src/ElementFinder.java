@@ -14,7 +14,7 @@ public class ElementFinder {
 
 
         //Solution #2
-        
+
         for (int i = 0; i < arrayList.size(); i++) {
             if (arrayList.get(i) == 7){
                 System.out.println("Hooray");

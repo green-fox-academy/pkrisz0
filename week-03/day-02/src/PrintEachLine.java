@@ -8,7 +8,7 @@ import java.util.List;
 public class PrintEachLine {
   public static void main(String[] args) {
       try {
-          Path filepath = Paths.get("my-file.txt");
+          Path filepath = Paths.get("src/reversed-lines-reversed.txt");
           List<String> lines = Files.readAllLines(filepath);
           System.out.println(lines);
       } catch (IOException e) {

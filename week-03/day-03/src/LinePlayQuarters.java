@@ -8,46 +8,37 @@ public class LinePlayQuarters {
 
     public static void mainDraw(Graphics graphics){
 
-        //top left
-        int y = HEIGHT / 2 - 20;
-        int x = 0;
-        for (int i = 0; i < WIDTH / 40; i++) {
-            graphics.setColor(Color.MAGENTA);
-            graphics.drawLine(0,y,x,0);
-            y -= 20;
-            x += 20;
-        }
-
+        //top left numbers to increment
+        int ytl = HEIGHT / 2 - 20;
+        int xtl = 0;
         //top right
         int x1tr = WIDTH / 2;
         int y2tr = 20;
+        //bottom right
+        int x2br = WIDTH - 20;
+        int y1br = HEIGHT / 2;
+        //bottom left
+        int y1bl = HEIGHT / 2;
+        int x2bl = 0;
+
         for (int i = 0; i < WIDTH / 40; i++) {
-            graphics.setColor(Color.GREEN);
+            graphics.setColor(Color.MAGENTA); //top left
+            graphics.drawLine(0,ytl,xtl,0);
+            graphics.setColor(Color.GREEN); //top right
             graphics.drawLine(x1tr,0,WIDTH,y2tr);
+            graphics.setColor(Color.RED); //bottom right
+            graphics.drawLine(WIDTH,y1br,x2br,HEIGHT);
+            graphics.setColor(Color.YELLOW); //bottom left
+            graphics.drawLine(0, y1bl, x2bl, HEIGHT);
+
+            ytl -= 20;
+            xtl += 20;
             x1tr += 20;
             y2tr += 20;
-        }
-
-        //bottom right
-        int x2bl = WIDTH - 20;
-        int y1bl = HEIGHT / 2;
-        for (int i = 0; i < WIDTH / 40; i++) {
-            graphics.setColor(Color.RED);
-            graphics.drawLine(WIDTH,y1bl,x2bl,HEIGHT);
-            x2bl -= 20;
-            y1bl += 20;
-        }
-
-        //bottom left
-        int y1br = HEIGHT / 2;
-        int x2br = 0;
-        for (int i = 0; i < WIDTH / 40; i++) {
-            graphics.setColor(Color.YELLOW);
-            graphics.drawLine(0, y1br, x2br, HEIGHT);
+            x2br -= 20;
             y1br += 20;
-            x2br += 20;
-            
-//THIS COULD ALL BE ONE GIANT FORI
+            y1bl += 20;
+            x2bl += 20;
         }
     }
 

@@ -4,6 +4,7 @@ public class String3{
     }
 
     static String xtoy (String input) {
+        /*
         String output = "";
         if (input.length() < 1) {
             return output;
@@ -11,6 +12,11 @@ public class String3{
             return output = input.charAt(0) + "*" + xtoy(input.substring(1));
         }
         return output = input.charAt(0) + xtoy(input.substring(1));
+        */
+
+        if(input.length() == 1){
+            return input;
+        } return input.charAt(0) + "*" + xtoy(input.substring(1,input.length()));
     }
 }
 

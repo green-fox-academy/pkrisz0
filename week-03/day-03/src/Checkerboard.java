@@ -38,6 +38,7 @@ public class Checkerboard {
             }
             ytwo += 40;
             xtwo = 0;
+
         }
     }
 

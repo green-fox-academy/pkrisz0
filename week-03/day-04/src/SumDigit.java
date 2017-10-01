@@ -1,6 +1,6 @@
 public class SumDigit {
     public static void main(String[] args) {
-        System.out.println("function result " + sumDigit(391));
+        System.out.println("function result " + sumDigit(666));
     }
 
     static int sumDigit (int input) {

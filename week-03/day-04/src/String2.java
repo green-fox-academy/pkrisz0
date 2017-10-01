@@ -4,6 +4,8 @@ public class String2{
     }
 
     static String xtoy (String input) {
+
+        /*
         String output = "";
         if (input.length() < 1) {
             return output;
@@ -11,7 +13,13 @@ public class String2{
             return output = ' ' + xtoy(input.substring(1));
         }
         return output = input.charAt(0) + xtoy(input.substring(1));
+        */
+
+        if(input.contains("x")){
+            return xtoy(input.replaceFirst("x",""));
+        } return input;
     }
 }
+
 // Given a string, compute recursively a new string where all the 'x' chars have been removed.
 

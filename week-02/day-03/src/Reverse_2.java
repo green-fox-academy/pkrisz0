@@ -14,10 +14,23 @@ public class Reverse_2 {
 
         for (int i = reversed.length() - 1; i >= 0; i--) {
             characters.add(dummy[i]);
+
         }
 
-        reversed = characters.toString().replaceAll(", |\\[|\\]", "");
+        System.out.println();
+        System.out.println();
+
+        System.out.println(characters);
+
+        System.out.println();
+        System.out.println();
+
+        reversed = characters.toString().replaceAll(", |\\[|]", "");
+
+
         System.out.print(reversed);
+        System.out.println();
+        System.out.println();
 
     }
 }

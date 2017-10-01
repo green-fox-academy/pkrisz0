@@ -21,12 +21,12 @@ public class DrawRectangle {
     }
 
     static void drawRectangle(Graphics g, int xLeft, int yDown, int boxsize, int n) {
-       //kezdoertekek nem lehetnek konstans 0
+
         g.setColor(Color.BLACK);        //starting four
         g.drawRect(xLeft + boxsize, yDown, boxsize, boxsize); // top middle
         g.drawRect(xLeft, yDown + boxsize, boxsize,boxsize); // middle left
-        g.drawRect(xLeft + boxsize, (yDown + boxsize * 2), boxsize, boxsize); // bottom middle
-        g.drawRect((xLeft + boxsize * 2), yDown + boxsize, boxsize, boxsize); // middle right
+        g.drawRect(xLeft + boxsize, yDown + boxsize * 2, boxsize, boxsize); // bottom middle
+        g.drawRect(xLeft + boxsize * 2, yDown + boxsize, boxsize, boxsize); // middle right
 
 
         if (n == 0) {
@@ -34,8 +34,8 @@ public class DrawRectangle {
         } else {
             drawRectangle(g,xLeft + boxsize, yDown, boxsize / 3, n - 1);
             drawRectangle(g,xLeft, yDown + boxsize, boxsize / 3, n - 1);
-            drawRectangle(g,xLeft + 2 * boxsize, yDown + boxsize, boxsize / 3, n - 1);
             drawRectangle(g,xLeft + boxsize, yDown + 2 * boxsize, boxsize / 3, n - 1);
+            drawRectangle(g,xLeft + 2 * boxsize, yDown + boxsize, boxsize / 3, n - 1);
             return;
         }
     }

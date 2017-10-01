@@ -6,7 +6,7 @@ public class Summing {
     public static int sum(int input){
         int summa = 0;
         for (int i = 0; i < input; i++){
-             summa = summa + i;
+             summa += i;
         }
         return summa;
     }

@@ -4,13 +4,20 @@ public class String1{
     }
 
     static String xtoy (String input) {
-        String output = "";
+        /*String output = "";
         if (input.length() < 1) {
             return output;
         } else if (input.charAt(0) == 'x') {
             return output = 'y' + xtoy(input.substring(1));
         }
         return output = input.charAt(0) + xtoy(input.substring(1));
+        */
+
+        //this is a lot easier :(
+
+        if(input.contains("x")){
+            return xtoy(input.replaceFirst("x","y"));
+        } return input;
     }
 }
 
