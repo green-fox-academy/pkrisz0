@@ -5,6 +5,16 @@ public class Sharpie {
 
 
 
+    public Sharpie (String color, float width) {
+        this.color = color;
+        this.width = width;
+        this.inkAmount = inkAmount;
+    }
+
+    public void use() {
+        this.inkAmount -= width;
+    }
+
     public static void main(String[] args) {
         Sharpie blue = new Sharpie("blue",3.5f);
         Sharpie red = new Sharpie("pink", 6.9f);
@@ -13,17 +23,6 @@ public class Sharpie {
         System.out.println("Remining " + blue.color + " : "+ blue.inkAmount);
         red.use();
         System.out.println("Remining " + red.color + " : "+ red.inkAmount);
-    }
-
-
-    public void use() {
-        this.inkAmount -= width;
-    }
-
-    public Sharpie (String color, float width) {
-        this.color = color;
-        this.width = width;
-        this.inkAmount = inkAmount;
     }
 }
 
