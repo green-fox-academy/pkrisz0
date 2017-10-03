@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Board extends JComponent implements KeyListener {
 
@@ -33,14 +35,29 @@ public class Board extends JComponent implements KeyListener {
         // here you have a 720x720 canvas
         // you can create and draw an image using the class below e.g.
 
-        for (int i = 0; i < boardSide / imgSide; i++) {
-            for (int j = 0; j < boardSide / imgSide; j++) {
-                PositionedImage background = new PositionedImage("C:/greenfox/pkrisz0/week-05/day-02/Images/floor.png", posX, posY);
-                background.draw(graphics);
-                posX += imgSide;
-            }
-            posX = 0;
-            posY += imgSide;
+        int[][] walls = new int[][]{
+                {0,0,0,1,0,1,0,0,0,0},  //0
+                {0,0,0,1,0,1,0,1,1,0},  //1
+                {0,1,1,1,0,1,0,1,1,0},  //2
+                {0,0,0,0,0,1,0,0,0,0},  //3
+                {1,1,1,1,0,1,1,1,1,0},  //4
+                {0,1,0,1,0,0,0,0,1,0},  //5
+                {0,1,0,1,0,1,1,0,1,0},  //6
+                {0,1,0,0,0,0,0,0,1,0},  //7
+                {0,0,0,1,0,1,1,0,1,0},  //8
+                {0,1,0,1,0,1,0,0,0,0}   //9
+        };
+
+        for (int j = 0; j < walls.length; j++) {
+           for (int i = 0; i < walls.length; i++) {
+               if (walls[j][i] == 1) {
+                   PositionedImage wall = new PositionedImage("C:/greenfox/pkrisz0/week-05/day-02/Images/wall.png", i * imgSide, j * imgSide);
+                   wall.draw(graphics);
+               } else if (walls[j][i] == 0) {
+                   PositionedImage background = new PositionedImage("C:/greenfox/pkrisz0/week-05/day-02/Images/floor.png", i * imgSide, j * imgSide);
+                   background.draw(graphics);
+               }
+           }
         }
     }
 
