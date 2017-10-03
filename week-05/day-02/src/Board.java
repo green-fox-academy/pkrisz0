@@ -12,6 +12,8 @@ public class Board extends JComponent implements KeyListener {
     int boardSide;
     int imgSide;
     String display;
+    int x =0;
+    int y = 0;
 
     public Board() {
         testBoxX = 0;
@@ -40,6 +42,22 @@ public class Board extends JComponent implements KeyListener {
             {0,0,0,1,0,1,1,0,1,0},  //8
             {0,1,0,1,0,1,0,0,0,0}   //9
     };
+
+    public boolean getWallsPosition(int x, int y){
+        if(walls[y / imgSide][x / imgSide] == 1){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean isInFrame(int x, int y){
+        if(y / imgSide >= 0 && y / imgSide <= 9 && x / imgSide >= 0 && x / imgSide <= 9 ){
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     @Override
     public void paint(Graphics graphics) {
@@ -99,15 +117,15 @@ public class Board extends JComponent implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         // When the up or down keys hit, we change the position of our box
-        if (e.getKeyCode() == KeyEvent.VK_UP) {
+        if (e.getKeyCode() == KeyEvent.VK_UP && getWallsPosition(testBoxX, testBoxY -= imgSide)) {
             testBoxY -= imgSide;
             display = "C:/greenfox/pkrisz0/week-05/day-02/Images/hero-up.png";
-        } else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
+        } else if(e.getKeyCode() == KeyEvent.VK_DOWN && getWallsPosition(testBoxX, testBoxY += imgSide)) {
             testBoxY += imgSide;
-        } else if(e.getKeyCode() == KeyEvent.VK_LEFT) {
+        } else if(e.getKeyCode() == KeyEvent.VK_LEFT && getWallsPosition(testBoxX -= imgSide, testBoxY)) {
             testBoxX -= imgSide;
             display = "C:/greenfox/pkrisz0/week-05/day-02/Images/hero-left.png";
-        } else if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
+        } else if(e.getKeyCode() == KeyEvent.VK_RIGHT && getWallsPosition(testBoxX += imgSide, testBoxY)) {
             testBoxX += imgSide;
             display = "C:/greenfox/pkrisz0/week-05/day-02/Images/hero-right.png";
         }
