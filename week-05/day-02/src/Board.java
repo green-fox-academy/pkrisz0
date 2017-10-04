@@ -24,7 +24,7 @@ public class Board extends JComponent implements KeyListener {
         skeletonOne = new Skeleton("", 5,5);
         skeletonTwo = new Skeleton("", 4,9);
         skeletonThree = new Skeleton("", 7,3);
-        boss = new Boss("",9,9);
+        boss = new Boss("",9,9); // *here comes the new boss, same as the old boss*
 
         // set the size of your draw board
         setPreferredSize(new Dimension(boardSide, boardSide));
@@ -33,10 +33,6 @@ public class Board extends JComponent implements KeyListener {
 
     @Override
     public void paint(Graphics graphics) {
-        //super.paint(graphics);
-        // graphics.fillRect(testBoxX, testBoxY, imgSide, imgSide);
-        // here you have a 720x720 canvas
-        // you can create and draw an image using the class below e.g.
 
         //draw board with walls
         for (int j = 0; j < map.walls.length; j++) {
@@ -84,34 +80,21 @@ public class Board extends JComponent implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         // When the up or down keys hit, we change the position of our box
-        if (e.getKeyCode() == KeyEvent.VK_UP && stayIn("y-1")) {
+        if (e.getKeyCode() == KeyEvent.VK_UP && hero.stayIn("y-1")) {
             hero.posY--;
             hero.turn("up");
-        } else if(e.getKeyCode() == KeyEvent.VK_DOWN && stayIn("y+1")) {
+        } else if(e.getKeyCode() == KeyEvent.VK_DOWN && hero.stayIn("y+1")) {
             hero.posY++;
             hero.turn("down");
-        } else if(e.getKeyCode() == KeyEvent.VK_LEFT && stayIn("x-1")) {
+        } else if(e.getKeyCode() == KeyEvent.VK_LEFT && hero.stayIn("x-1")) {
             hero.posX--;
             hero.turn("left");
-        } else if(e.getKeyCode() == KeyEvent.VK_RIGHT && stayIn("x+1")) {
+        } else if(e.getKeyCode() == KeyEvent.VK_RIGHT && hero.stayIn("x+1")) {
             hero.posX++;
             hero.turn("right");
         }
         // and redraw to have a new picture with the new coordinates
         repaint();
-    }
-
-    public boolean stayIn(String input){
-        if (input.equals("x-1")){
-            return (map.walls[hero.posY][hero.posX - 1] != 1);
-        } else if (input.equals("x+1")) {
-            return (map.walls[hero.posY][hero.posX + 1] != 1);
-        } else if (input.equals("y-1")) {
-            return (map.walls[hero.posY - 1][hero.posX] != 1);
-        } else if (input.equals("y+1")) {
-            return (map.walls[hero.posY + 1][hero.posX] != 1);
-        }
-        return false;
     }
 }
 

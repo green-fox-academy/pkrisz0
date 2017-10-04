@@ -15,4 +15,8 @@ public class Map {
                 {0,1,0,1,0,1,0,0,0,0}   //9
         };
     }
+
+    public boolean isItAWall(int y, int x){
+        return walls[y][x] == 1;
+    }
 }

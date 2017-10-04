@@ -9,6 +9,8 @@ public class Hero extends PositionedImage {
     String right = "C:/greenfox/pkrisz0/week-05/day-02/Images/hero-right.png";
     String up = "C:/greenfox/pkrisz0/week-05/day-02/Images/hero-up.png";
 
+    Map map = new Map();
+
 
     public Hero(String filename, int posX, int posY) {
         super("C:/greenfox/pkrisz0/week-05/day-02/Images/hero-down.png", posX, posY);
@@ -28,5 +30,18 @@ public class Hero extends PositionedImage {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public boolean stayIn(String input){
+        if (input.equals("x-1")){
+            return (map.walls[posY][posX - 1] != 1);
+        } else if (input.equals("x+1")) {
+            return (map.walls[posY][posX + 1] != 1);
+        } else if (input.equals("y-1")) {
+            return (map.walls[posY - 1][posX] != 1);
+        } else if (input.equals("y+1")) {
+            return (map.walls[posY + 1][posX] != 1);
+        }
+        return false;
     }
 }
