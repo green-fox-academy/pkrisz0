@@ -7,6 +7,13 @@ public class Ship extends ArrayList<Pirates> {
     Captain jack;
     String name;
 
+    public Ship() {
+        one = new Pirates();
+        this.initialCapacity = one.randomGenerator(0,20);
+        this.crewCount = 0;
+        jack = new Captain();
+    }
+
     public Ship(String name) {
         one = new Pirates();
         this.initialCapacity = one.randomGenerator(0,20);
@@ -68,7 +75,7 @@ public class Ship extends ArrayList<Pirates> {
             losing.get(i).die();
         }
         for (int j = 0; j < winning.crewCount; j++) {
-            for (int i = 0; i < one.randomGenerator(1, 6000000) ; i++) {
+            for (int i = 0; i < one.randomGenerator(1, 5) ; i++) {
                 winning.get(j).drinkSomeRum();
                 rumCount++;
             }

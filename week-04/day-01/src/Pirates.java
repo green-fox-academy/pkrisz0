@@ -11,13 +11,14 @@ public class Pirates {
         this.alive = true;
     }
 
-    public void drinkSomeRum(){
+    public String drinkSomeRum(){
         if (!this.alive){
-            System.out.println("he's dead...");
+            return "he's dead...";
         } else {
             this.intoxication++;
             drinkCount++;
         }
+        return "AYE";
     }
 
     public String howsItGoingMate(){
