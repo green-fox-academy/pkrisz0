@@ -1,9 +1,9 @@
 public class Counter {
-    int value = 0;
-    int initial = 0;
+    int value;
+    int initial;
 
     public Counter () {
-        this.value = value;
+        this.value = 0;
     }
 
 
@@ -13,7 +13,7 @@ public class Counter {
     }
 
     public int add() {
-        return value += 1;
+        return value++;
     }
 
     public int add(int i) {
@@ -27,23 +27,7 @@ public class Counter {
     public int reset() {
         return value = this.initial;
     }
-
-    public static void main(String[] args) {
-        Counter mamma = new Counter();
-        mamma.add(600);
-        System.out.println(mamma.get());
-        mamma.reset();
-        System.out.println(mamma.get());
-    }
 }
-
-
-
-
-
-
-
-
 
 /*
 Create Counter class
@@ -54,3 +38,4 @@ or we can add() without parameters just increasing the counter's value by one
 nd we can get() the current value
  also we can reset() the value to the initial value
 */
+

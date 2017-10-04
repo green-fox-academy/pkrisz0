@@ -1,7 +1,7 @@
 public class Animal {
     String name;
-    int hunger = 50;
-    int thirst = 50;
+    int hunger;
+    int thirst;
 
     public static void main(String[]args){
 
@@ -13,6 +13,7 @@ public class Animal {
         cat.eat();
         cat.eat();
         cat.eat();
+        cat.drink();
 
         System.out.println("After eating 3 whole meals, " + cat.name + " is this hungry: " + cat.hunger);
     }
@@ -20,21 +21,21 @@ public class Animal {
 
 public Animal (String name) {
         this.name = name;
-        this.hunger = hunger;
-        this.thirst = thirst;
+        this.thirst = 50;
+        this.hunger = 50;
         }
 
 public void eat() {
-        this.hunger -= 1;
+        this.hunger--;
         }
 
 public void drink() {
-        this.thirst =- 1;
+        this.thirst--;
         }
 
 public void play () {
-        this.hunger += 1;
-        this.thirst += 1;
+        this.hunger++;
+        this.thirst++;
         }
 
 }

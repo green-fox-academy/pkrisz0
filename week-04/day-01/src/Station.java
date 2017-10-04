@@ -7,7 +7,7 @@ public class Station {
     }
 
     public int refill(Car car) {
-        this.gasAmount -= car.capacity;
+        this.gasAmount -= (car.capacity - car.gasAmount);
         car.gasAmount += (car.capacity - car.gasAmount);
         return car.capacity;
     }

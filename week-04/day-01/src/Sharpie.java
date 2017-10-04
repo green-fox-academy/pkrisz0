@@ -1,14 +1,12 @@
 public class Sharpie {
     String color;
     float width;
-    float inkAmount = 100f;
-
-
+    float inkAmount;
 
     public Sharpie (String color, float width) {
         this.color = color;
         this.width = width;
-        this.inkAmount = inkAmount;
+        this.inkAmount = 100f;
     }
 
     public void use() {
@@ -20,9 +18,9 @@ public class Sharpie {
         Sharpie red = new Sharpie("pink", 6.9f);
 
         blue.use();
-        System.out.println("Remining " + blue.color + " : "+ blue.inkAmount);
+        System.out.println("Remaining " + blue.color + " : " + blue.inkAmount);
         red.use();
-        System.out.println("Remining " + red.color + " : "+ red.inkAmount);
+        System.out.println("Remaining " + red.color + " : " + red.inkAmount);
     }
 }
 
@@ -34,3 +32,4 @@ Every sharpie is created with a default 100 as inkAmount
 We can use() the sharpie objects
 which decreases inkAmount
 */
+

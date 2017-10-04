@@ -1,7 +1,23 @@
 public class BlogPost {
+
+    String authorname;
+    String title;
+    String text;
+    String publicationname;
+
+    public BlogPost(String authorname, String title, String text, String publicationname) {
+        this.authorname = authorname;
+        this.title = title;
+        this.text = text;
+        this.publicationname = publicationname;
+    }
+
+
     public static void main(String[] args) {
 
         PostForBlog one = new PostForBlog();
+
+        PostForBlog four = new PostForBlog();
         one.authorName = "John Doe";
         one.title = "Lorem Ipsum";
         one.text = "Lorem ipsum dolor sit amet.";

@@ -6,6 +6,5 @@ public class GasStation {
         System.out.println("the station had this much: " + mol.gasAmount);
         System.out.println("the car now has this much: " + mol.refill(limo));
         System.out.println("the station had this much left: " + mol.gasAmount);
-
     }
 }
