@@ -16,6 +16,7 @@ public class Board extends JComponent implements KeyListener {
     int y = 0;
     Map map;
     Hero hero;
+    int posToBe = 0;
 
     public Board() {
         testBoxX = 0;
@@ -27,6 +28,7 @@ public class Board extends JComponent implements KeyListener {
         display = "C:/greenfox/pkrisz0/week-05/day-02/Images/hero-down.png";
         map = new Map();
         hero = new Hero(display, posX,posY);
+
 
         // set the size of your draw board
         setPreferredSize(new Dimension(boardSide, boardSide));
@@ -55,9 +57,14 @@ public class Board extends JComponent implements KeyListener {
         hero.draw(graphics);
     }
 
-    public boolean isInFrame(int x, int y){
-        return ((x >= 0 ) && (x <= 720) && (y >= 0) && (y <= 720));
+    public boolean isInFrame(int a){
+        return ((a >= 0 ) && (a <= 720));
     }
+
+    public void nextPosition(){
+
+    }
+
 
     public static void main(String[] args) {
         // Here is how you set up a new window and adding our board to it
@@ -90,17 +97,17 @@ public class Board extends JComponent implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         // When the up or down keys hit, we change the position of our box
-        if (e.getKeyCode() == KeyEvent.VK_UP) {
-            hero.posY -= 1;
+        if (e.getKeyCode() == KeyEvent.VK_UP && (map.walls[hero.posY - 1][hero.posX] != 1)) {
+            hero.posY--;
             hero.turn("up");
-        } else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
-            hero.posY += 1;
+        } else if(e.getKeyCode() == KeyEvent.VK_DOWN && (map.walls[hero.posY + 1][hero.posX] != 1)) {
+            hero.posY++;
             hero.turn("down");
-        } else if(e.getKeyCode() == KeyEvent.VK_LEFT) {
-            hero.posX -= 1;
+        } else if(e.getKeyCode() == KeyEvent.VK_LEFT && (map.walls[hero.posY][hero.posX - 1] != 1)) {
+            hero.posX--;
             hero.turn("left");
-        } else if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            hero.posX += 1;
+        } else if(e.getKeyCode() == KeyEvent.VK_RIGHT && (map.walls[hero.posY][hero.posX + 1] != 1)) {
+            hero.posX++;
             hero.turn("right");
         }
         // and redraw to have a new picture with the new coordinates

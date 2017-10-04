@@ -16,6 +16,4 @@ public class Map {
         };
     }
 
-    //map for wall
-
 }

@@ -29,19 +29,4 @@ public class Hero extends PositionedImage {
             e.printStackTrace();
         }
     }
-
-    /*
-    public boolean getWallsPosition(int x, int y, walls[][]){
-        if(walls[y / imgSide][x / imgSide] == 1){
-            return true;
-        } else {
-            return false;
-        }
-    }
-    */
-
-
-
-
-
 }
