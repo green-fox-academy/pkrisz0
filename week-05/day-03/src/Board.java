@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Board extends JComponent{
+public class Board extends JComponent {
 
     int testBoxX;
     int testBoxY;
@@ -25,8 +25,8 @@ public class Board extends JComponent{
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
         frame.pack();
-        PositionedImage map = new Map();
-        map.draw();
 
+        Map map = new Map();
+        map.paint(graphics);
     }
 }
