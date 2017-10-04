@@ -4,22 +4,23 @@ public class Practice {
         Pirates orlando = new Pirates();
         Pirates keira = new Pirates();
 
-        orlando.drinkSomeRum();
-        orlando.drinkSomeRum();
-
         System.out.println(orlando.howsItGoingMate());
-
         orlando.brawl(keira);
 
-        Ship blackpearl = new Ship();
+        Ship blackPearl = new Ship("Black Pearl");
+        blackPearl.fillShip();
+        blackPearl.introduce();
 
-        blackpearl.fillShip();
-        blackpearl.introduce();
+        Ship jerryBruckheimer = new Ship("Jerry Bruckheimer");
+        jerryBruckheimer.fillShip();
+        jerryBruckheimer.introduce();
+
+        blackPearl.battle(jerryBruckheimer);
     }
 
 
 }
 
 //    an orange with blue text: "Idea 1"
-//        a pink with black text: "Awesome"
-//        a yellow with green text: "Superb!"
+//    a pink with black text: "Awesome"
+//    a yellow with green text: "Superb!"
