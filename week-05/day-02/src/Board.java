@@ -4,42 +4,27 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Board extends JComponent implements KeyListener {
-    int testBoxX;
-    int testBoxY;
     int posX;
     int posY;
     int boardSide;
-    int imgSide;
-    String heroPic;
     Map map;
     Hero hero;
     Skeleton skeletonOne;
     Skeleton skeletonTwo;
     Skeleton skeletonThree;
-    String skeletonPic;
-    String bossPic;
     Boss boss;
 
     public Board() {
-        testBoxX = 0;
-        testBoxY = 0;
         posX = 0;
         posY = 0;
         boardSide = 720;
-        imgSide = 72;
-        heroPic = "C:/greenfox/pkrisz0/week-05/day-02/Images/hero-down.png";
-        skeletonPic = "C:/greenfox/pkrisz0/week-05/day-02/Images/skeleton.png";
-        bossPic = "C:/greenfox/pkrisz0/week-05/day-02/Images/boss.png";
 
         map = new Map();
-
-        hero = new Hero(heroPic, posX,posY);
-
-        skeletonOne = new Skeleton(skeletonPic, 5,5);
-        skeletonTwo = new Skeleton(skeletonPic, 4,9);
-        skeletonThree = new Skeleton(skeletonPic, 7,3);
-
-        boss = new Boss(bossPic,9,9);
+        hero = new Hero("", posX,posY);
+        skeletonOne = new Skeleton("", 5,5);
+        skeletonTwo = new Skeleton("", 4,9);
+        skeletonThree = new Skeleton("", 7,3);
+        boss = new Boss("",9,9);
 
         // set the size of your draw board
         setPreferredSize(new Dimension(boardSide, boardSide));
@@ -75,19 +60,13 @@ public class Board extends JComponent implements KeyListener {
     }
 
     public static void main(String[] args) {
-        // Here is how you set up a new window and adding our board to it
         JFrame frame = new JFrame("RPG Game");
         Board board = new Board();
         frame.add(board);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
         frame.pack();
-        // Here is how you can add a key event listener
-        // The board object will be notified when hitting any key
-        // with the system calling one of the below 3 methods
         frame.addKeyListener(board);
-        // Notice (at the top) that we can only do this
-        // because this Board class (the type of the board object) is also a KeyListener
     }
 
     // To be a KeyListener the class needs to have these 3 methods in it
@@ -129,9 +108,10 @@ public class Board extends JComponent implements KeyListener {
             return (map.walls[hero.posY][hero.posX + 1] != 1);
         } else if (input.equals("y-1")) {
             return (map.walls[hero.posY - 1][hero.posX] != 1);
-        }else if (input.equals("y+1")) {
+        } else if (input.equals("y+1")) {
             return (map.walls[hero.posY + 1][hero.posX] != 1);
         }
         return false;
     }
 }
+

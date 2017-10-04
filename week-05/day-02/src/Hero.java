@@ -11,7 +11,7 @@ public class Hero extends PositionedImage {
 
 
     public Hero(String filename, int posX, int posY) {
-        super(filename, posX, posY);
+        super("C:/greenfox/pkrisz0/week-05/day-02/Images/hero-down.png", posX, posY);
     }
 
     public void turn(String direction){
