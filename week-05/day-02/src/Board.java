@@ -14,6 +14,8 @@ public class Board extends JComponent implements KeyListener {
     String display;
     int x =0;
     int y = 0;
+    Map map;
+    Hero hero;
 
     public Board() {
         testBoxX = 0;
@@ -23,67 +25,38 @@ public class Board extends JComponent implements KeyListener {
         boardSide = 720;
         imgSide = 72;
         display = "C:/greenfox/pkrisz0/week-05/day-02/Images/hero-down.png";
+        map = new Map();
+        hero = new Hero(display, posX,posY);
 
         // set the size of your draw board
         setPreferredSize(new Dimension(boardSide, boardSide));
         setVisible(true);
     }
 
-    //map for wall
-    int[][] walls = new int[][]{
-            {0,0,0,1,0,1,0,0,0,0},  //0
-            {0,0,0,1,0,1,0,1,1,0},  //1
-            {0,1,1,1,0,1,0,1,1,0},  //2
-            {0,0,0,0,0,1,0,0,0,0},  //3
-            {1,1,1,1,0,1,1,1,1,0},  //4
-            {0,1,0,1,0,0,0,0,1,0},  //5
-            {0,1,0,1,0,1,1,0,1,0},  //6
-            {0,1,0,0,0,0,0,0,1,0},  //7
-            {0,0,0,1,0,1,1,0,1,0},  //8
-            {0,1,0,1,0,1,0,0,0,0}   //9
-    };
-
-    public boolean getWallsPosition(int x, int y){
-        if(walls[y / imgSide][x / imgSide] == 1){
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public boolean isInFrame(int x, int y){
-        if(y / imgSide >= 0 && y / imgSide <= 9 && x / imgSide >= 0 && x / imgSide <= 9 ){
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     @Override
     public void paint(Graphics graphics) {
-        super.paint(graphics);
+        //super.paint(graphics);
         // graphics.fillRect(testBoxX, testBoxY, imgSide, imgSide);
         // here you have a 720x720 canvas
         // you can create and draw an image using the class below e.g.
 
         //draw board with walls
-
-        for (int j = 0; j < walls.length; j++) {
-            for (int i = 0; i < walls.length; i++) {
-                if (walls[j][i] == 1) {
-                    PositionedImage wall = new PositionedImage("C:/greenfox/pkrisz0/week-05/day-02/Images/wall.png",imgSide * i,imgSide * j);
+        for (int j = 0; j < map.walls.length; j++) {
+            for (int i = 0; i <  map.walls.length; i++) {
+                if ( map.walls[j][i] == 1) {
+                    PositionedImage wall = new PositionedImage("C:/greenfox/pkrisz0/week-05/day-02/Images/wall.png",i,j);
                     wall.draw(graphics);
-                } else if (walls[j][i] == 0) {
-                    PositionedImage background = new PositionedImage("C:/greenfox/pkrisz0/week-05/day-02/Images/floor.png", imgSide * i, imgSide * j);
+                } else if ( map.walls[j][i] == 0) {
+                    PositionedImage background = new PositionedImage("C:/greenfox/pkrisz0/week-05/day-02/Images/floor.png", i, j);
                     background.draw(graphics);
                 }
             }
         }
-
-        //hero
-        PositionedImage hero = new PositionedImage(display, testBoxX, testBoxY);
         hero.draw(graphics);
+    }
 
+    public boolean isInFrame(int x, int y){
+        return ((x >= 0 ) && (x <= 720) && (y >= 0) && (y <= 720));
     }
 
     public static void main(String[] args) {
@@ -117,17 +90,18 @@ public class Board extends JComponent implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         // When the up or down keys hit, we change the position of our box
-        if (e.getKeyCode() == KeyEvent.VK_UP && getWallsPosition(testBoxX, testBoxY -= imgSide)) {
-            testBoxY -= imgSide;
-            display = "C:/greenfox/pkrisz0/week-05/day-02/Images/hero-up.png";
-        } else if(e.getKeyCode() == KeyEvent.VK_DOWN && getWallsPosition(testBoxX, testBoxY += imgSide)) {
-            testBoxY += imgSide;
-        } else if(e.getKeyCode() == KeyEvent.VK_LEFT && getWallsPosition(testBoxX -= imgSide, testBoxY)) {
-            testBoxX -= imgSide;
-            display = "C:/greenfox/pkrisz0/week-05/day-02/Images/hero-left.png";
-        } else if(e.getKeyCode() == KeyEvent.VK_RIGHT && getWallsPosition(testBoxX += imgSide, testBoxY)) {
-            testBoxX += imgSide;
-            display = "C:/greenfox/pkrisz0/week-05/day-02/Images/hero-right.png";
+        if (e.getKeyCode() == KeyEvent.VK_UP) {
+            hero.posY -= 1;
+            hero.turn("up");
+        } else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
+            hero.posY += 1;
+            hero.turn("down");
+        } else if(e.getKeyCode() == KeyEvent.VK_LEFT) {
+            hero.posX -= 1;
+            hero.turn("left");
+        } else if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
+            hero.posX += 1;
+            hero.turn("right");
         }
         // and redraw to have a new picture with the new coordinates
         repaint();
