@@ -4,19 +4,21 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Board extends JComponent implements KeyListener {
-
     int testBoxX;
     int testBoxY;
     int posX;
     int posY;
     int boardSide;
     int imgSide;
-    String display;
-    int x =0;
-    int y = 0;
+    String heroPic;
     Map map;
     Hero hero;
-    int posToBe = 0;
+    Skeleton skeletonOne;
+    Skeleton skeletonTwo;
+    Skeleton skeletonThree;
+    String skeletonPic;
+    String bossPic;
+    Boss boss;
 
     public Board() {
         testBoxX = 0;
@@ -25,10 +27,19 @@ public class Board extends JComponent implements KeyListener {
         posY = 0;
         boardSide = 720;
         imgSide = 72;
-        display = "C:/greenfox/pkrisz0/week-05/day-02/Images/hero-down.png";
-        map = new Map();
-        hero = new Hero(display, posX,posY);
+        heroPic = "C:/greenfox/pkrisz0/week-05/day-02/Images/hero-down.png";
+        skeletonPic = "C:/greenfox/pkrisz0/week-05/day-02/Images/skeleton.png";
+        bossPic = "C:/greenfox/pkrisz0/week-05/day-02/Images/boss.png";
 
+        map = new Map();
+
+        hero = new Hero(heroPic, posX,posY);
+
+        skeletonOne = new Skeleton(skeletonPic, 5,5);
+        skeletonTwo = new Skeleton(skeletonPic, 4,9);
+        skeletonThree = new Skeleton(skeletonPic, 7,3);
+
+        boss = new Boss(bossPic,9,9);
 
         // set the size of your draw board
         setPreferredSize(new Dimension(boardSide, boardSide));
@@ -55,6 +66,12 @@ public class Board extends JComponent implements KeyListener {
             }
         }
         hero.draw(graphics);
+
+        skeletonOne.draw(graphics);
+        skeletonTwo.draw(graphics);
+        skeletonThree.draw(graphics);
+
+        boss.draw(graphics);
     }
 
     public static void main(String[] args) {
@@ -106,7 +123,6 @@ public class Board extends JComponent implements KeyListener {
     }
 
     public boolean stayIn(String input){
-
         if (input.equals("x-1")){
             return (map.walls[hero.posY][hero.posX - 1] != 1);
         } else if (input.equals("x+1")) {
