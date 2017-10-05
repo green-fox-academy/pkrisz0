@@ -7,19 +7,13 @@ import java.util.List;
 public class Copy {
     public static void main(String[] args) {
 
-        hi();
-
-        if(args == null){
+        if(args.length == 0){
             System.out.println("copy [source] [destination]");
         } else if (args.length == 1) {
             System.out.println("No destination provided");
         } else if (args.length > 0 && args[0].equals("cp") && args[1] != null && args[2] != null) {
             copy(args[1], args[2]);
         }
-    }
-
-    public static String hi(){
-        return "command me master";
     }
 
     public static void copy(String source, String destination){
@@ -29,7 +23,6 @@ public class Copy {
         try {
             List<String> contentOfSource = Files.readAllLines(sourcePath);
             Files.write(destinationPath, contentOfSource);
-
         } catch (IOException e){
             System.out.println("Something went wrong.");
         }
