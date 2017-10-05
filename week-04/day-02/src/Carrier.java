@@ -10,9 +10,9 @@ public class Carrier extends ArrayList<Aircrafts> {
     F35 F35;
 
 
-    public Carrier(String name, int carrierAmmo) {
+    public Carrier(String name, int carrierAmmo, int carrierHp) {
         this.carrierAmmo = carrierAmmo;
-        this.carrierHp = 100;
+        this.carrierHp = carrierHp;
         this.shipsOnCarrier = new ArrayList<>();
         this.name = name;
     }
@@ -100,4 +100,55 @@ public class Carrier extends ArrayList<Aircrafts> {
     public void fillCarrier(int ammo){
         this.carrierAmmo += ammo;
     }
+
+    public int firePower(){
+        int firePower = 0;
+        for (int i = 0; i < this.shipCount(); i++) {
+            firePower += (this.shipsOnCarrier.get(i).ammoStore * this.shipsOnCarrier.get(i).baseDamage);
+        }
+        return firePower;
+    }
+
+    public void warDamage(Carrier other){
+        other.carrierHp -= this.firePower();
+        this.carrierHp -= other.firePower();
+        this.carrierAmmo = 0;
+        other.carrierAmmo = 0;
+
+        for (int i = 0; i < this.shipCount(); i++) {
+            this.shipsOnCarrier.get(i).ammoStore = 0;
+        }
+        for (int i = 0; i < this.shipCount(); i++) {
+            other.shipsOnCarrier.get(i).ammoStore = 0;
+        }
+    }
+
+    public void fight(Carrier other){
+        if (other.carrierHp - this.firePower() > this.carrierHp - other.firePower()){
+            this.warDamage(other);
+            System.out.println(this.name + " won the fight.");
+        } else {
+            this.warDamage(other);
+            System.out.println(other.name + " won the fight.");
+        }
+    }
+
+    public void status(){
+        System.out.println(this.name + " HP: " + this.carrierHp + ", Ammo Storage: " + this.carrierAmmo + ", Total Damage: " + this.firePower());
+        for (int i = 0; i < this.shipCount() - 1; i++) {
+            System.out.println("Type " + this.shipsOnCarrier.get(i).getType() + ", Ammo: " + this.shipsOnCarrier.get(i).ammoStore + ", Base Damage "
+                    + this.shipsOnCarrier.get(i).baseDamage + ", All Damage: " + (this.shipsOnCarrier.get(i).baseDamage
+                    + this.shipsOnCarrier.get(i).ammoStore)+ ".");
+        }
+    }
 }
+
+//        It should give back a string about it's and all of its aircrafts status like:
+//        HP: 5000, Aircraft count: 4, Ammo Storage: 2300, Total damage: 2280
+//        Aircrafts:
+//        Type F35, Ammo: 12, Base Damage: 50, All Damage: 600
+//        Type F35, Ammo: 12, Base Damage: 50, All Damage: 600
+//        Type F35, Ammo: 12, Base Damage: 50, All Damage: 600
+//        Type F16, Ammo: 8, Base Damage: 30, All Damage: 240
+//        Type F16, Ammo: 8, Base Damage: 30, All Damage: 240
+//        If the health points are 0 than it should give back: It's dead Jim :(
