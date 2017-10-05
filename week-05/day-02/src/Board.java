@@ -81,21 +81,34 @@ public class Board extends JComponent implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         // When the up or down keys hit, we change the position of our box
-        if (e.getKeyCode() == KeyEvent.VK_UP && hero.stayIn("y-1")) {
+        if (e.getKeyCode() == KeyEvent.VK_UP && stayIn("y-1")) {
             hero.posY--;
             hero.turn("up");
-        } else if(e.getKeyCode() == KeyEvent.VK_DOWN && hero.stayIn("y+1")) {
+        } else if(e.getKeyCode() == KeyEvent.VK_DOWN && stayIn("y+1")) {
             hero.posY++;
             hero.turn("down");
-        } else if(e.getKeyCode() == KeyEvent.VK_LEFT && hero.stayIn("x-1")) {
+        } else if(e.getKeyCode() == KeyEvent.VK_LEFT && stayIn("x-1")) {
             hero.posX--;
             hero.turn("left");
-        } else if(e.getKeyCode() == KeyEvent.VK_RIGHT && hero.stayIn("x+1")) {
+        } else if(e.getKeyCode() == KeyEvent.VK_RIGHT && stayIn("x+1")) {
             hero.posX++;
             hero.turn("right");
         }
         // and redraw to have a new picture with the new coordinates
         repaint();
+    }
+
+    public boolean stayIn(String input){
+        if (input.equals("x-1")){
+            return (!map.isItAWall(hero.posY,hero.posX - 1));
+        } else if (input.equals("x+1")) {
+            return (!map.isItAWall(hero.posY,hero.posX + 1));
+        } else if (input.equals("y-1")) {
+            return (!map.isItAWall(hero.posY - 1,hero.posX));
+        } else if (input.equals("y+1")) {
+            return (!map.isItAWall(hero.posY + 1,hero.posX));
+        }
+        return false;
     }
 }
 
