@@ -3,7 +3,6 @@ public class Aircrafts {
     int baseDamage;
     int ammoStore;
     int damage;
-    int refillAmount;
     int remainingAmmo;
 
     public Aircrafts() {
@@ -16,12 +15,11 @@ public class Aircrafts {
         return this.damage;
     }
 
-    public String refill(int refillAmount){
-
-        this.remainingAmmo = refillAmount - (this.maxAmmo - this.ammoStore);
-
+    public int refill(int refillAmount){
+        this.remainingAmmo = (refillAmount - (this.maxAmmo - this.ammoStore));
+        System.out.println(this.getType() + " aircraft has been refilled with " + (this.maxAmmo - this.ammoStore) + " units of ammo.");
         this.ammoStore += (this.maxAmmo - this.ammoStore);
-        return "Remaining ammo after fill: " + this.remainingAmmo;
+        return this.remainingAmmo;
     }
 
     public String getType() {
