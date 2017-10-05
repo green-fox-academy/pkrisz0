@@ -6,9 +6,6 @@ public class Carrier extends ArrayList<Aircrafts> {
     int carrierAmmo;
     int carrierHp;
     String name;
-    F16 F16;
-    F35 F35;
-
 
     public Carrier(String name, int carrierAmmo, int carrierHp) {
         this.carrierAmmo = carrierAmmo;
@@ -143,12 +140,3 @@ public class Carrier extends ArrayList<Aircrafts> {
     }
 }
 
-//        It should give back a string about it's and all of its aircrafts status like:
-//        HP: 5000, Aircraft count: 4, Ammo Storage: 2300, Total damage: 2280
-//        Aircrafts:
-//        Type F35, Ammo: 12, Base Damage: 50, All Damage: 600
-//        Type F35, Ammo: 12, Base Damage: 50, All Damage: 600
-//        Type F35, Ammo: 12, Base Damage: 50, All Damage: 600
-//        Type F16, Ammo: 8, Base Damage: 30, All Damage: 240
-//        Type F16, Ammo: 8, Base Damage: 30, All Damage: 240
-//        If the health points are 0 than it should give back: It's dead Jim :(
