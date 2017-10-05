@@ -1,10 +1,6 @@
-public class Skeleton extends PositionedImage {
+public class Skeleton extends Characters {
 
-    String skeletonPic = "C:/greenfox/pkrisz0/week-05/day-02/Images/skeleton.png";
-
-    Map map = new Map();
-
-    public Skeleton(String filename, int posX, int posY) {
-        super("C:/greenfox/pkrisz0/week-05/day-02/Images/skeleton.png",posX, posY);
+    public Skeleton(int posX, int posY){
+        super("C:/greenfox/pkrisz0/week-05/day-02/Images/skeleton.png",posX,posY);
     }
 }

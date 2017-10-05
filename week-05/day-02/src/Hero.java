@@ -2,7 +2,7 @@ import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 
-public class Hero extends PositionedImage {
+public class Hero extends Characters {
 
     String left = "C:/greenfox/pkrisz0/week-05/day-02/Images/hero-left.png";
     String down = "C:/greenfox/pkrisz0/week-05/day-02/Images/hero-down.png";
@@ -12,7 +12,7 @@ public class Hero extends PositionedImage {
     Map map = new Map();
 
 
-    public Hero(String filename, int posX, int posY) {
+    public Hero(int posX, int posY) {
         super("C:/greenfox/pkrisz0/week-05/day-02/Images/hero-down.png", posX, posY);
     }
 

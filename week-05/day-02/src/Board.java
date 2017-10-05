@@ -20,13 +20,13 @@ public class Board extends JComponent implements KeyListener {
         boardSide = 720;
 
         map = new Map();
-        hero = new Hero("", posX,posY);
+        hero = new Hero(posX,posY);
 
-        skeletonOne = new Skeleton("", randomCoordinate()[1],randomCoordinate()[0]);
-        skeletonTwo = new Skeleton("", randomCoordinate()[1],randomCoordinate()[0]);
-        skeletonThree = new Skeleton("", randomCoordinate()[1],randomCoordinate()[0]);
+        skeletonOne = new Skeleton(4,3);
+        skeletonTwo = new Skeleton( 4,6);
+        skeletonThree = new Skeleton(7,7);
 
-        boss = new Boss("", randomCoordinate()[1],randomCoordinate()[0]); // *here comes the new boss, same as the old boss*
+        boss = new Boss(9,9); // *here comes the new boss, same as the old boss*
 
         // set the size of your draw board
         setPreferredSize(new Dimension(boardSide, boardSide));
@@ -48,13 +48,11 @@ public class Board extends JComponent implements KeyListener {
                 }
             }
         }
-        hero.draw(graphics);
 
+        hero.draw(graphics);
         skeletonOne.draw(graphics);
         skeletonTwo.draw(graphics);
         skeletonThree.draw(graphics);
-
-
         boss.draw(graphics);
     }
 
@@ -98,21 +96,6 @@ public class Board extends JComponent implements KeyListener {
         }
         // and redraw to have a new picture with the new coordinates
         repaint();
-    }
-
-    public int random(){
-        return (int) Math.floor(Math.random() * 10);
-    }
-
-    public int[] randomCoordinate(){
-        int[] output = new int[2];
-        output[0] = 4;
-        output[1] = 0;
-        while (map.isItAWall(output[0], output[1])){
-            output[0] = random();
-            output[1] = random();
-        }
-        return output;
     }
 }
 

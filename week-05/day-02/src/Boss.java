@@ -1,6 +1,6 @@
-public class Boss extends PositionedImage {
+public class Boss extends Characters {
 
-    public Boss(String filename, int posX, int posY) {
+    public Boss(int posX, int posY) {
         super("C:/greenfox/pkrisz0/week-05/day-02/Images/boss.png", posX, posY);
     }
 }
