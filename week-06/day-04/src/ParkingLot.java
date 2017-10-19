@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
+import java.util.HashMap;
 
 public class ParkingLot extends ArrayList<Car> {
 
@@ -26,7 +26,6 @@ public class ParkingLot extends ArrayList<Car> {
 
     public int countType(Car.Type type){
         int count = 0;
-
         for (int i = 0; i < this.size(); i++) {
             if (this.get(i).type == type ){
                 count++;
@@ -35,12 +34,12 @@ public class ParkingLot extends ArrayList<Car> {
         return count;
     }
 
-    public List<String> allTypes(){
-        List<String> allTypes = new ArrayList<>();
+    public HashMap<Car.Type, Integer> allTypes(){
+        HashMap<Car.Type, Integer> types = new HashMap<>();
         for (int i = 0; i < Car.Type.values().length; i++) {
-            allTypes.add(Car.Type.values()[i] + ": " + countType(Car.Type.values()[i]));
+            types.put(Car.Type.values()[i] , countType(Car.Type.values()[i]));
         }
-        return allTypes;
+        return types;
     }
 
     public int countColor(Car.Color color){
@@ -54,39 +53,28 @@ public class ParkingLot extends ArrayList<Car> {
         return count;
     }
 
-    public List<String> allColor(){
-        List<String> allColors = new ArrayList<>();
+    public HashMap<Car.Color, Integer> allColor(){
+        HashMap<Car.Color, Integer> colors = new HashMap<>();
         for (int i = 0; i < Car.Color.values().length; i++) {
-            allColors.add(Car.Color.values()[i] + ": " + countColor(Car.Color.values()[i]));
+            colors.put(Car.Color.values()[i] , countColor(Car.Color.values()[i]));
         }
-        return allColors;
+        return colors;
     }
 
     public String mostFrequent(){
         String mostFrequent = "The most frequent vehicle in the parking lot is a ";
-        List<Integer> countCol = new ArrayList<>();
 
-        for (int i = 0; i < this.allColor().size(); i++) {
-           countCol.add(countColor(Car.Color.values()[i]));
-        }
-
-        for (int i = 0; i < Car.Color.values().length; i++) {
-            if (this.allColor().get(i).contains(String.valueOf(Collections.max(countCol)))){
-                mostFrequent += (this.allColor().get(i).replaceAll("[0-9&:]",""));
+        for (Car.Color x : allColor().keySet()) {
+            if (allColor().get(x).equals(Collections.max(allColor().values()))){
+                mostFrequent += x + " ";
             }
         }
 
-        List<Integer> countType = new ArrayList<>();
-
-        for (int i = 0; i < this.allTypes().size(); i++) {
-            countType.add(countType(Car.Type.values()[i]));
-        }
-
-        for (int i = 0; i < Car.Type.values().length; i++) {
-            if (this.allTypes().get(i).contains(String.valueOf(Collections.max(countType)))){
-                mostFrequent += (this.allTypes().get(i).replaceAll("[0-9&:]",""));
+        for (Car.Type x : allTypes().keySet()) {
+            if (allTypes().get(x).equals(Collections.max(allTypes().values()))){
+                mostFrequent += x + " car.";
             }
         }
-        return mostFrequent + "car.";
+        return mostFrequent;
     }
 }
