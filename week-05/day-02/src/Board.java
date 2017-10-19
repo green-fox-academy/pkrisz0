@@ -80,7 +80,7 @@ public class Board extends JComponent implements KeyListener {
     // But actually we can use just this one for our goals here
     @Override
     public void keyReleased(KeyEvent e) {
-        // When the up or down keys hit, we change the position of our box
+//         When the up or down keys hit, we change the position of our box
         if (e.getKeyCode() == KeyEvent.VK_UP && stayIn("y-1")) {
             hero.posY--;
             hero.turn("up");
@@ -94,6 +94,7 @@ public class Board extends JComponent implements KeyListener {
             hero.posX++;
             hero.turn("right");
         }
+
         // and redraw to have a new picture with the new coordinates
         repaint();
     }
