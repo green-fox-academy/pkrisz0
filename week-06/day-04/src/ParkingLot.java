@@ -1,10 +1,10 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Comparator;
 
-public class ParkingLot extends ArrayList<Car> {
+public class ParkingLot extends ArrayList<Car>{
 
     int size;
 
@@ -17,7 +17,7 @@ public class ParkingLot extends ArrayList<Car> {
         one.makeCars(256);
         System.out.println(one.allTypes());
         System.out.println(one.allColor());
-        System.out.println(one.mostFrequent());
+        System.out.println(one.printFrequent());
     }
 
     public void makeCars(int howMany){
@@ -79,5 +79,27 @@ public class ParkingLot extends ArrayList<Car> {
         sortedKeys.addAll(mostFrequent.keySet());
         Collections.sort(sortedKeys);
         return "The most frequent car in the lot is the " + mostFrequent.get(sortedKeys.get(sortedKeys.size() - 1)) + ".";
+    }
+
+    public Car frequent(){
+        HashMap<Integer, Car> mostFrequent = new HashMap<>();
+        int frequency = 1;
+        for (int i = 0; i < this.size(); i++) {
+            for (int j = 0; j < this.size() - 1; j++) {
+                if((this.get(i).compareTo(this.get(j))== 1)){
+                    frequency++;
+                }
+            }
+            mostFrequent.put(frequency,this.get(i));
+            frequency = 1;
+        }
+        List<Integer> sortedKeys = new ArrayList<>();
+        sortedKeys.addAll(mostFrequent.keySet());
+        Collections.sort(sortedKeys);
+        return mostFrequent.get(sortedKeys.get(sortedKeys.size()-1));
+    }
+
+    public String printFrequent(){
+        return "The most common car in the lot is the " + frequent().color + " " + frequent().type + ".";
     }
 }
