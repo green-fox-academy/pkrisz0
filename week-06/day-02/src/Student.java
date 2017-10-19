@@ -28,8 +28,8 @@ public class Student extends Person implements Cloneable {
     }
 
     @Override
-    public Student clone() throws CloneNotSupportedException {
-        return (Student) super.clone();
+    public Student clone(){
+        return new Student(this.name, this.age, this.gender, this.previousOrganization);
     }
 
     @Override

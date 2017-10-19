@@ -7,7 +7,9 @@ public class Dominoes {
         List<Domino> dominoes = initializeDominoes();
 
         Collections.sort(dominoes);
-        System.out.println(dominoes);
+        for(Domino d : dominoes) {
+            d.printAllFields();
+        }
     }
 
     static List<Domino> initializeDominoes() {
@@ -20,4 +22,5 @@ public class Dominoes {
         dominoes.add(new Domino(7, 1));
         return dominoes;
     }
+
 }
