@@ -4,17 +4,36 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import joptsimple.OptionParser;
+import joptsimple.OptionSet;
 
 public class TodoApp extends ArrayList<Todo> {
+    public TodoApp() {
+        welcome();
+    }
+
     public static void main(String[] args) {
-         welcome();
-         TodoApp one = new TodoApp();
-         one.add("walk the dog");
-         one.add("buy milk");
-         one.add("kill hitler");
-         one.complete(2);
-         one.delete(1);
-         one.print();
+        TodoApp one = new TodoApp();
+        one.argHandler(args);
+    }
+
+    public void argHandler(String[] input){
+        OptionParser parser = new OptionParser();
+        parser.accepts("l").withRequiredArg();
+        parser.accepts("a").withRequiredArg();
+        parser.accepts("r").withRequiredArg();
+        parser.accepts("c").withRequiredArg();
+        OptionSet options = parser.parse(input);
+
+        if (options.has("l")) {
+            this.print();
+        } if (options.has("a")){
+            this.add(String.valueOf(options.valueOf("a")));
+        } if (options.has("r")){
+            this.delete((Integer)(options.valueOf("r")));
+        } if (options.has("c")){
+            this.complete((Integer)options.valueOf("c"));
+        }
     }
 
     public void add(String description){
