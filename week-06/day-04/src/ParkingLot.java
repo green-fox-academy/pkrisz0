@@ -13,7 +13,7 @@ public class ParkingLot extends ArrayList<Car>{
         one.makeCars(256);
         System.out.println(one.allTypes());
         System.out.println(one.allColor());
-        System.out.println(one.printFrequent());
+        one.frequentCar();
     }
 
     public void makeCars(int howMany){
@@ -59,22 +59,30 @@ public class ParkingLot extends ArrayList<Car>{
         return colors;
     }
 
-    public Car frequentCar(){
-        Hashtable<Integer, Car> mostFrequent = new Hashtable<>();
+    public void frequentCar(){
+        HashMap<String, Integer> mostFrequent = new HashMap<>();
         for (int i = 0; i < this.size(); i++) {
-            mostFrequent.put(aaaargh(i),this.get(i));
+            if (!mostFrequent.containsKey(this.get(i).name)){
+                mostFrequent.put(this.get(i).name, aaaargh(i));
+            }
         }
-        List<Integer> sortedKeys = new ArrayList<>();
-        sortedKeys.addAll(mostFrequent.keySet());
-        Collections.sort(sortedKeys);
-        return mostFrequent.get(sortedKeys.get(sortedKeys.size() - 1));
+
+        System.out.println("The most frequent car is");
+
+        int maxValueInMap=(Collections.max(mostFrequent.values()));  // This will return max value in the Hashmap
+        mostFrequent.forEach((key, value) -> {  // Itrate through hashmap
+            if (value == maxValueInMap) {
+                System.out.println(key);     // Print the key with max value
+            }
+        });
+
+
     }
 
-    public String printFrequent(){
-        return "The most common car in the lot is the " + frequentCar().color + " " + frequentCar().type + ".";
-    }
 
     public int aaaargh(int i){
         return Collections.frequency(this, this.get(i));
     }
+
+
 }
