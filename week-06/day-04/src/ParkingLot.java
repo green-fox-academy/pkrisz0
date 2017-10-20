@@ -69,7 +69,7 @@ public class ParkingLot extends ArrayList<Car>{
 
         System.out.println("The most frequent car is");
 
-        int maxValueInMap=(Collections.max(mostFrequent.values()));  // This will return max value in the Hashmap
+        int maxValueInMap = (Collections.max(mostFrequent.values()));  // This will return max value in the Hashmap
         mostFrequent.forEach((key, value) -> {  // Itrate through hashmap
             if (value == maxValueInMap) {
                 System.out.println(key);     // Print the key with max value
