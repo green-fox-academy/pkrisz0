@@ -12,6 +12,7 @@ public class HelloDiffWebController {
         Hellos hello = new Hellos();
         model.addAttribute("hello", hello.content);
         model.addAttribute("color", hello.col);
+        model.addAttribute("red", 100);
         return "greetingDiff";
     }
 }
