@@ -4,10 +4,16 @@ public class Greeting {
 
     long id;
     String content;
+    String name;
 
     public Greeting(long id, String content) {
         this.id = id;
         this.content = content;
+    }
+
+    public Greeting(long id, String content, String name) {
+        this.id = id;
+        this.content = content + name + "!";
     }
 
     public long getId() {
