@@ -10,7 +10,7 @@ public class Hellos {
             "Salve", "Ciao", "Kon-nichiwa", "An-nyong Ha-se-yo", "Salvëte", "Ni hao", "Dzien' dobry", "Olá", "Bunã ziua", "Zdravstvuyte", "Hola", "Jambo", "Hujambo", "Hej",
             "Sa-wat-dee", "Merhaba", "Selam", "Vitayu", "Xin chào", "Hylo", "Sut Mae", "Sholem Aleychem", "Sawubona"};
 
-    String[] color = {"red", "green", "blue"};
+    String[] color = {"red", "green", "blue", "yellow"};
 
 
     public String getHello(){
