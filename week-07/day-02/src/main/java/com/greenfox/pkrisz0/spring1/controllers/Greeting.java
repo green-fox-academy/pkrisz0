@@ -1,10 +1,10 @@
 package com.greenfox.pkrisz0.spring1.controllers;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class Greeting {
 
     long id;
     String content;
-    String name;
 
     public Greeting(long id, String content) {
         this.id = id;
