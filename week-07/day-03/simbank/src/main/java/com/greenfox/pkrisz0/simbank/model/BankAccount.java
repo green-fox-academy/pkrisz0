@@ -8,6 +8,9 @@ public class BankAccount {
     boolean king;
     boolean good;
 
+    public BankAccount() {
+    }
+
     public BankAccount(String name, String balance, String animalType, boolean good) {
         this.name = name;
         this.animalType = animalType;
