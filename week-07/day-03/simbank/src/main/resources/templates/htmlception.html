@@ -6,8 +6,7 @@
     <meta charset="utf-8" />
 </head>
 <body>
-<p th:text="'Account holder: ' + ${name}"/>
-<p th:text="'Current Balance: ' + ${balance} + '.00 ' + ${currency}"/>
-<p th:text="'Animal Type of Account holder: ' + ${animalType} "/>
+<p th:text="${text}"/>
+<p th:utext="${text}"/>
 </body>
 </html>

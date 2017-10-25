@@ -11,9 +11,9 @@ public class ControllerExercise1 {
 
     @RequestMapping(value="/exercise1")
     public String exerciseOne(Model model){
-        BankAccount one = new BankAccount("Simba", 2000f, "lion");
+        BankAccount one = new BankAccount("Simba", "2000", "lion");
         model.addAttribute("name", one.getName());
-        model.addAttribute("balanceF", one.getBalanceF());
+        model.addAttribute("balance", one.getBalance());
         model.addAttribute("animalType", one.getAnimalType());
         model.addAttribute("currency", one.getCurrency());
         return "exercise1";
