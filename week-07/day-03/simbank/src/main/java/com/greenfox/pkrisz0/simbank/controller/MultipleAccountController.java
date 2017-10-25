@@ -12,11 +12,11 @@ public class MultipleAccountController {
     @RequestMapping(value="/multipleaccounts")
     public String exerciseOne(Model model){
         ArrayList<BankAccount> accounts = new ArrayList<>();
-        accounts.add(new BankAccount("Scar", "20000", "lion"));
-        accounts.add(new BankAccount("Zayu", "5000", "bird"));
-        accounts.add(new BankAccount("Rafiki", "10000", "mandrill"));
-        accounts.add(new BankAccount("Gopher", "500", "gopher"));
-        accounts.add(new BankAccount("Simba", "2000", "lion"));
+        accounts.add(new BankAccount("Scar", "20000", "lion", false));
+        accounts.add(new BankAccount("Zayu", "5000", "bird", true));
+        accounts.add(new BankAccount("Rafiki", "10000", "mandrill",true));
+        accounts.add(new BankAccount("Gopher", "500", "gopher",false));
+        accounts.add(new BankAccount("Simba", "2000", "lion",true));
         accounts.get(4).setKing(true);
         model.addAttribute("accounts", accounts);
         return "multipleaccounts";

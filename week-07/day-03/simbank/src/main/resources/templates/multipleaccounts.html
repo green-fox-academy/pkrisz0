@@ -8,7 +8,7 @@
 <body>
     <h2>List of Bank Accounts in SimBank</h2>
 
-    <table width="500" border="1">
+    <table width="800" border="1">
        <tr >
            <th>Id</th>
            <th>Name</th>
@@ -16,6 +16,7 @@
            <th>Currency</th>
            <th>Animal Type</th>
            <th>Royalty?</th>
+           <th>Who's side is the owner on?</th>
        </tr>
        <tr th:style= "${account.isKing()} == true? 'color: red'" th:each="account, iterStat: ${accounts}" align="center" >
            <td th:text="${iterStat.count}"></td>
@@ -24,6 +25,7 @@
            <td th:text="${account.currency}"></td>
            <td th:text="${account.animalType}"></td>
            <td th:text="${account.isKing()} == true? 'yes' : 'no'"></td>
+           <td th:text="${account.good} == true? 'Good One' : 'Bad Guy'"></td>
        </tr>
     </table>
 </body>
