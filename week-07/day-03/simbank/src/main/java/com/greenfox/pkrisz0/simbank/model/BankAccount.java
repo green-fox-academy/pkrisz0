@@ -2,13 +2,34 @@ package com.greenfox.pkrisz0.simbank.model;
 
 public class BankAccount {
     String name;
-    int balance;
+    float balance;
     String animalType;
+    String balanceF;
+    String currency;
 
-    public BankAccount(String name, int balance, String animalType) {
+    public BankAccount(String name, float balance, String animalType) {
         this.name = name;
-        this.balance = balance;
         this.animalType = animalType;
+        this.balance = balance;
+        this.balanceF = String.format("%.02f", balance);
+        this.currency = "Zebra";
+    }
+
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+    public String getBalanceF() {
+        return balanceF;
+    }
+
+    public void setBalanceF(String balanceF) {
+        this.balanceF = balanceF;
     }
 
     public String getName() {
@@ -19,11 +40,11 @@ public class BankAccount {
         this.name = name;
     }
 
-    public int getBalance() {
+    public float getBalance() {
         return balance;
     }
 
-    public void setBalance(int balance) {
+    public void setBalance(float balance) {
         this.balance = balance;
     }
 
