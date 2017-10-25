@@ -8,8 +8,8 @@
 <body>
     <h2>List of Bank Accounts in SimBank</h2>
 
-    <table>
-       <tr>
+    <table width="500" border="1">
+       <tr >
            <th>Id</th>
            <th>Name</th>
            <th>Balance</th>
@@ -18,12 +18,12 @@
            <th>Royalty?</th>
        </tr>
        <tr th:each="account, iterStat: ${accounts}">
-           <td th:text="${iterStat.count}"></td>
-           <td th:text="${account.name}"></td>
-           <td th:text="${#numbers.formatDecimal(account.balance, 0, 2)}"></td>
-           <td th:text="${account.currency}"></td>
-           <td th:text="${account.animalType}"></td>
-           <td th:text="(${account.name} == 'Simba')? 'yes' : 'no'"></td>
+           <td align="center" th:text="${iterStat.count}"></td>
+           <td align="center" th:text="${account.name}"></td>
+           <td align="center" th:text="${#numbers.formatDecimal(account.balance, 0, 2)}"></td>
+           <td align="center" th:text="${account.currency}"></td>
+           <td align="center" th:text="${account.animalType}"></td>
+           <td align="center" th:text="(${account.name} == 'Simba')? 'yes' : 'no'"></td>
        </tr>
     </table>
 </body>
