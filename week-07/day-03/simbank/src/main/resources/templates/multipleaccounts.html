@@ -17,7 +17,7 @@
            <th>Animal Type</th>
            <th>Royalty?</th>
        </tr>
-       <tr th:each="account, iterStat: ${accounts}">
+       <tr th:style= "${account.name} == 'Simba'? 'color: red'" th:each="account, iterStat: ${accounts}"  >
            <td align="center" th:text="${iterStat.count}"></td>
            <td align="center" th:text="${account.name}"></td>
            <td align="center" th:text="${#numbers.formatDecimal(account.balance, 0, 2)}"></td>
