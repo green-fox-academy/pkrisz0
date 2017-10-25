@@ -10,12 +10,14 @@
 
     <table>
        <tr>
+           <th>Id</th>
            <th>Name</th>
            <th>Balance</th>
            <th>Currency</th>
            <th>Animal Type</th>
        </tr>
-       <tr th:each="account : ${accounts}">
+       <tr th:each="account, iterStat: ${accounts}">
+           <td th:text="${iterStat.count}"></td>
            <td th:text="${account.name}"></td>
            <td th:text="${#numbers.formatDecimal(account.balance, 0, 2)}"></td>
            <td th:text="${account.currency}"></td>
