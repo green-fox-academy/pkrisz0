@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thymeleaf Exercise #</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h2>List of Bank Accounts in SimBank</h2>
+
+    <table>
+       <tr>
+           <th>Name</th>
+           <th>Balance</th>
+           <th>Currency</th>
+           <th>Animal Type</th>
+       </tr>
+       <tr th:each="account : ${accounts}">
+           <td th:text="${account.name}"></td>
+           <td th:text="${#numbers.formatDecimal(account.balance, 0, 2)}"></td>
+           <td th:text="${account.currency}"></td>
+           <td th:text="${account.animalType}"></td>
+       </tr>
+    </table>
+</body>
+</html>
