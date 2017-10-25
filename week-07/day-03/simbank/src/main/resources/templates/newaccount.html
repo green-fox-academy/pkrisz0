@@ -7,9 +7,12 @@
 </head>
 <body>
   <h1>Form</h1>
-  <form action="#" th:action="@{/newaccount}" th:object="${account}" method="post">
+  <form action="#" th:action="@{/newaccount}" th:object="${bankaccount}" method="post">
       <p>Name: <input type="text" th:field="*{name}" /></p>
       <p>Balance: <input type="text" th:field="*{balance}" /></p>
+      <p>Type of Animal: <input type="text" th:field="*{animalType}" /></p>
+      <p>Is it a king: <input type="text" th:field="*{king}" /></p>
+      <p>Is it a good guy: <input type="text" th:field="*{good}" /></p>
       <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
   </form>
 

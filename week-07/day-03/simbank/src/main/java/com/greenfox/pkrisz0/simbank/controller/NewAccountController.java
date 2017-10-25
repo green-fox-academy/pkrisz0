@@ -1,6 +1,7 @@
 package com.greenfox.pkrisz0.simbank.controller;
 
-import com.greenfox.pkrisz0.simbank.model.Account;
+
+import com.greenfox.pkrisz0.simbank.model.BankAccount;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,12 +12,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class NewAccountController {
     @GetMapping("/newaccount")
     public String greetingForm(Model model) {
-        model.addAttribute("account", new Account());
+        model.addAttribute("account", new BankAccount());
         return "newaccount";
     }
 
     @PostMapping("/newaccount")
-    public String greetingSubmit(@ModelAttribute Account account) {
+    public String greetingSubmit(@ModelAttribute BankAccount account) {
         return "result";
     }
 }
