@@ -17,6 +17,7 @@ public class MultipleAccountController {
         accounts.add(new BankAccount("Rafiki", "10000", "mandrill"));
         accounts.add(new BankAccount("Gopher", "500", "gopher"));
         accounts.add(new BankAccount("Simba", "2000", "lion"));
+        accounts.get(4).setKing(true);
         model.addAttribute("accounts", accounts);
         return "multipleaccounts";
     }

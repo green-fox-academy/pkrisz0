@@ -5,12 +5,23 @@ public class BankAccount {
     String balance;
     String animalType;
     String currency;
+    boolean isKing;
 
     public BankAccount(String name, String balance, String animalType) {
         this.name = name;
         this.animalType = animalType;
         this.balance = balance;
         this.currency = "Zebra";
+        this.isKing = false;
+
+    }
+
+    public boolean isKing() {
+        return isKing;
+    }
+
+    public void setKing(boolean king) {
+        isKing = king;
     }
 
 
