@@ -1,0 +1,38 @@
+body {
+    background-image: url("https://wallpaper.wiki/wp-content/uploads/2017/05/Simba-Lion-King-Photo-HD.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+h2, th {
+    font-family: "Bookman Old Style";
+    text-align: center;
+    color: white;
+}
+
+td {
+    font-family: "Bookman Old Style";
+}
+
+th {
+    color: black;
+    background: palegreen;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    width: 1000px;
+    text-align:center;
+    margin: 0px auto;
+    background: whitesmoke;
+}
+
+table, td, th {
+    border: solid 2px grey;
+}
+
