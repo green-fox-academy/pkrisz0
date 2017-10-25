@@ -17,15 +17,21 @@
            <th>Animal Type</th>
            <th>Royalty?</th>
            <th>Who's side is the owner on?</th>
+           <th>Who's side is the owner on? (switch)</th>
+
        </tr>
-       <tr th:style= "${account.isKing()} == true? 'color: red'" th:each="account, iterStat: ${accounts}" align="center" >
+       <tr th:style= "${account.king} == true? 'color: red'" th:each="account, iterStat: ${accounts}" align="center" >
            <td th:text="${iterStat.count}"></td>
            <td th:text="${account.name}"></td>
            <td th:text="${#numbers.formatDecimal(account.balance, 0, 2)}"></td>
            <td th:text="${account.currency}"></td>
            <td th:text="${account.animalType}"></td>
-           <td th:text="${account.isKing()} == true? 'yes' : 'no'"></td>
+           <td th:text="${account.king} == true? 'yes' : 'no'"></td>
            <td th:text="${account.good} == true? 'Good One' : 'Bad Guy'"></td>
+           <td th:switch="${account.good}">
+               <p th:case="true">Good One</p>
+               <p th:case="false">Bad Guy</p>
+           </td>
        </tr>
     </table>
 </body>

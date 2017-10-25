@@ -5,7 +5,7 @@ public class BankAccount {
     String balance;
     String animalType;
     String currency;
-    boolean isKing;
+    boolean king;
     boolean good;
 
     public BankAccount(String name, String balance, String animalType, boolean good) {
@@ -13,7 +13,7 @@ public class BankAccount {
         this.animalType = animalType;
         this.balance = balance;
         this.currency = "Zebra";
-        this.isKing = false;
+        this.king = false;
         this.good = good;
     }
 
@@ -26,11 +26,11 @@ public class BankAccount {
     }
 
     public boolean isKing() {
-        return isKing;
+        return king;
     }
 
     public void setKing(boolean king) {
-        isKing = king;
+        this.king = true;
     }
 
 
