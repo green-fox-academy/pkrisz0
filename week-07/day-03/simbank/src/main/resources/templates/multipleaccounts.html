@@ -15,6 +15,7 @@
            <th>Balance</th>
            <th>Currency</th>
            <th>Animal Type</th>
+           <th>Royalty?</th>
        </tr>
        <tr th:each="account, iterStat: ${accounts}">
            <td th:text="${iterStat.count}"></td>
@@ -22,6 +23,7 @@
            <td th:text="${#numbers.formatDecimal(account.balance, 0, 2)}"></td>
            <td th:text="${account.currency}"></td>
            <td th:text="${account.animalType}"></td>
+           <td th:text="(${account.name} == 'Simba')? 'yes' : 'no'"></td>
        </tr>
     </table>
 </body>
