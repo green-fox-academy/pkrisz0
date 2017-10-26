@@ -11,7 +11,7 @@ public class ControllerExercise1 {
 
     @RequestMapping(value="/exercise1")
     public String exerciseOne(Model model){
-        BankAccount one = new BankAccount("Simba", "2000", "lion",true);
+        BankAccount one = new BankAccount("Simba", "2000", "lion",true, true);
         model.addAttribute("name", one.getName());
         model.addAttribute("balance", one.getBalance());
         model.addAttribute("animalType", one.getAnimalType());

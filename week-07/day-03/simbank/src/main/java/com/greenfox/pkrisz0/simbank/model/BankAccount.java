@@ -9,14 +9,16 @@ public class BankAccount {
     boolean good;
 
     public BankAccount() {
+        this.currency = "Zebra";
+        this.king = false;
     }
 
-    public BankAccount(String name, String balance, String animalType, boolean good) {
+    public BankAccount(String name, String balance, String animalType, boolean good, boolean king) {
         this.name = name;
         this.animalType = animalType;
         this.balance = balance;
         this.currency = "Zebra";
-        this.king = false;
+        this.king = king;
         this.good = good;
     }
 
