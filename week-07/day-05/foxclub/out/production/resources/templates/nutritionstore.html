@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Welcome to the Fox Club!</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <meta charset="utf-8" />
+</head>
+<body>
+
+    <ul>
+        <li><a th:href="@{/information.html}">Information</a></li>
+    </ul>
+
+    <p>Food</p>
+
+
+    <form th:action="@{/information}" method="post">
+        <select name="food">
+            <option value="falafel">Falafel</option>
+            <option value="fig">Figs</option>
+            <option value="tortilla">Tortilla</option>
+        </select>
+
+        <p>Drink</p>
+        <select name="drink">
+            <option value="coke">Coke</option>
+            <option value="cokelight">Coke Light</option>
+            <option value="blacktea">Black Tea</option>
+        </select>
+        <input type="submit" value="Change"/>
+    </form>
+
+</body>
+</html>
