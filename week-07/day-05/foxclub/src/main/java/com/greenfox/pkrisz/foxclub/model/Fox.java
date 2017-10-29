@@ -55,4 +55,9 @@ public class Fox {
     public void setDrink(String drink) {
         this.drink = drink;
     }
+
+    public void learn(String trick){
+        this.tricks.add(trick);
+    }
+
 }
