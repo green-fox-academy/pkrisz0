@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Welcome to the Fox Club!</title>
+    <title>Todo List</title>
     <link rel="stylesheet" th:href="@{/style.css}" />
     <meta charset="utf-8" />
 </head>
 <body>
 <h1>Todos for today:</h1>
 
-  <ol th:each="todo:${todos}">
-    <li seq="${todo.id}" th:text="${todo}"></li>
-  </ol>
+<table>
+    <tr >
+        <th>Id</th>
+        <th>Action</th>
+        <th>Urgent</th>
+        <th>Done</th>
+    </tr>
+    <tr th:each="todo:${todos}">
+        <td th:text="${todo.id}"></td>
+        <td th:text="${todo.title}"></td>
+        <td th:text="${todo.isUrgent()}"></td>
+        <td th:text="${todo.isDone()}"></td>
+    </tr>
+</table>
+
 
 </body>
 </html>
