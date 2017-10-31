@@ -6,6 +6,11 @@
     <meta charset="utf-8" />
 </head>
 <body>
+<h1>Todos for today:</h1>
+
+  <ol th:each="todo:${todos}">
+    <li seq="${todo.id}" th:text="${todo}"></li>
+  </ol>
 
 </body>
 </html>
