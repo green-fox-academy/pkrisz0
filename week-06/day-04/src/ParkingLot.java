@@ -75,10 +75,7 @@ public class ParkingLot extends ArrayList<Car>{
                 System.out.println(key);     // Print the key with max value
             }
         });
-
-
     }
-
 
     public int aaaargh(int i){
         return Collections.frequency(this, this.get(i));

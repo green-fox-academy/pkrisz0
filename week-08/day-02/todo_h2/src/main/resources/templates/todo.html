@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Welcome to the Fox Club!</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <meta charset="utf-8" />
+</head>
+<body>
+<h1>Todos for today:</h1>
+
+  <ol th:each="todo:${todos}">
+    <li seq="${todo.id}" th:text="${todo}"></li>
+  </ol>
+
+</body>
+</html>
