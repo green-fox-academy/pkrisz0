@@ -17,6 +17,8 @@
         <th>Urgent</th>
         <th>Done</th>
         <th>Delete</th>
+        <th>Edit</th>
+
     </tr>
     <tr th:each="todo:${todos}"
         th:if="${todo.done}!=${done}">
@@ -27,6 +29,11 @@
         <td>
             <form action="#" th:action="@{'/todo/delete/{id}'(id=${todo.id})}" th:method="delete" >
                 <button type="submit"> Delete </button>
+            </form>
+        </td>
+        <td>
+            <form action="#" th:action="@{'/todo/edit/{id}'(id=${todo.id})}">
+                <button type="submit"> Edit </button>
             </form>
         </td>
     </tr>

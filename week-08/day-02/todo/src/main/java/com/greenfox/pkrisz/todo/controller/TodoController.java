@@ -39,4 +39,16 @@ public class TodoController {
         todoRepo.delete(id);
         return "redirect:/todo/list";
     }
+
+    @RequestMapping("/edit/{id}")
+    public String editEntry(@PathVariable long id, Model model){
+        model.addAttribute("editedTodo", todoRepo.findOne(id));
+        return "edit";
+    }
+
+    @RequestMapping(value="/update", method=RequestMethod.POST)
+    public String updateEntry(@ModelAttribute Todo todo){
+        todoRepo.save(todo);
+        return "redirect:/todo/list";
+    }
 }

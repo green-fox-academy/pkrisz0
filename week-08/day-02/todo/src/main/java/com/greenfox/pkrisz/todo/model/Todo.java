@@ -29,7 +29,7 @@ public class Todo {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -41,24 +41,21 @@ public class Todo {
         this.title = title;
     }
 
-    public boolean urgent() {
-        return urgent;
-    }
 
-    public void setUrgent(boolean urgent) {
-        urgent = urgent;
-    }
     public boolean isUrgent() {
         return urgent;
     }
-
 
     public boolean isDone() {
         return done;
     }
 
+    public void setUrgent(boolean urgent) {
+        this.urgent = urgent;
+    }
+
     public void setDone(boolean done) {
-        done = done;
+        this.done = done;
     }
 
     @Override
