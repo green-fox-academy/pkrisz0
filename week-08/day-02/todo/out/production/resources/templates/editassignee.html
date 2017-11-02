@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="'Edit assignee ' + ${editedAss.id}"/>
+</head>
+<body>
+<h1 th:text="'Edit assignee ' + ${editedAss.id}" />
+<form th:action="@{/assignee/}" th:object="${editedAss}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+    Name <input type="text" th:field="*{name}"/>
+    Email <input type="text" th:field="*{email}"/>
+    <button type="submit" value="Submit">Submit</button>
+</form>
+</body>
+</html>
