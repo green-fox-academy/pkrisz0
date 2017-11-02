@@ -1,6 +1,5 @@
 package com.greenfox.pkrisz.todo.controller;
 
-import com.greenfox.pkrisz.todo.model.Assignee;
 import com.greenfox.pkrisz.todo.model.Todo;
 import com.greenfox.pkrisz.todo.repository.AssigneeRepo;
 import com.greenfox.pkrisz.todo.repository.TodoRepo;

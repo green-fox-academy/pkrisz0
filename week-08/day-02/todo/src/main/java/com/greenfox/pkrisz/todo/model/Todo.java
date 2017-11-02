@@ -1,6 +1,10 @@
 package com.greenfox.pkrisz.todo.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import java.time.LocalDate;
+
 
 @Entity
 public class Todo {
@@ -13,16 +17,26 @@ public class Todo {
     boolean urgent;
     boolean done;
 
+    @DateTimeFormat(pattern = "mm/dd/yyyy")
+    LocalDate created;
+
+    @DateTimeFormat(pattern = "mm/dd/yyyy")
+    LocalDate due;
+
     @ManyToOne (cascade =CascadeType.ALL)
     Assignee assignee;
 
     public Todo() {
+        this.created = LocalDate.now();
+        this.due = LocalDate.now().plusYears(1);
     }
 
     public Todo(String title) {
         this.title = title;
         this.urgent = false;
         this.done = false;
+        this.created = LocalDate.now();
+        this.due = LocalDate.now().plusYears(1);
     }
 
     public long getId() {
@@ -66,6 +80,22 @@ public class Todo {
         this.assignee = assignee;
     }
 
+
+    public LocalDate getCreated() {
+        return created;
+    }
+
+    public void setCreated(LocalDate created) {
+        this.created = created;
+    }
+
+    public LocalDate getDue() {
+        return due;
+    }
+
+    public void setDue(LocalDate due) {
+        this.due = due;
+    }
 
     @Override
     public String toString() {
