@@ -1,6 +1,8 @@
 package com.greenfox.pkrisz.todo.controller;
 
+import com.greenfox.pkrisz.todo.model.Assignee;
 import com.greenfox.pkrisz.todo.model.Todo;
+import com.greenfox.pkrisz.todo.repository.AssigneeRepo;
 import com.greenfox.pkrisz.todo.repository.TodoRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,9 @@ public class TodoController {
 
     @Autowired
     TodoRepo todoRepo;
+
+    @Autowired
+    AssigneeRepo assigneeRepo;
 
     @GetMapping({"","/","list"})
     public String list(Model model, @RequestParam(name = "isActive", required = false) Boolean done){
@@ -43,6 +48,8 @@ public class TodoController {
     @GetMapping("/{id}/edit")
     public String editEntry(@PathVariable long id, Model model){
         model.addAttribute("editedTodo", todoRepo.findOne(id));
+        model.addAttribute("assignees", assigneeRepo.findAll());
+        model.addAttribute("id", id);
         return "edit";
     }
 }

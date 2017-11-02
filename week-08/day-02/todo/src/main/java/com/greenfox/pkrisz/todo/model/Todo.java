@@ -1,9 +1,6 @@
 package com.greenfox.pkrisz.todo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Todo {
@@ -15,6 +12,9 @@ public class Todo {
     String title;
     boolean urgent;
     boolean done;
+
+    @ManyToOne (cascade =CascadeType.ALL)
+    Assignee assignee;
 
     public Todo() {
     }
@@ -57,6 +57,15 @@ public class Todo {
     public void setDone(boolean done) {
         this.done = done;
     }
+
+    public Assignee getAssignee() {
+        return assignee;
+    }
+
+    public void setAssignee(Assignee assignee) {
+        this.assignee = assignee;
+    }
+
 
     @Override
     public String toString() {
