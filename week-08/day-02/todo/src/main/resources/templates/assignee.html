@@ -23,7 +23,7 @@
     <tr th:each="assignee:${assignees}" >
         <td th:text="${assignee.id}"></td>
         <td th:text="${assignee.email}"></td>
-        <td th:text="${assignee.name}"></td>
+        <td th:text="${assignee.name}" ></td>
         <td>
             <form th:action="@{'/assignee/{id}/delete'(id=${assignee.id})}" th:method="delete" >
                 <button type="submit"> Delete </button>

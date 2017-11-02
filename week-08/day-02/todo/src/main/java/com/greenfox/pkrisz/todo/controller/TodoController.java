@@ -21,9 +21,16 @@ public class TodoController {
     AssigneeRepo assigneeRepo;
 
     @GetMapping({"","/","list"})
-    public String list(Model model, @RequestParam(name = "isActive", required = false) Boolean done){
+    public String list(Model model, @RequestParam(name = "isActive", required = false) Boolean done, @RequestParam (required = false) String search){
         model.addAttribute("todos", todoRepo.findAll());
         model.addAttribute("done", done);
+
+        if (search != null) {
+            model.addAttribute("todos", todoRepo.findAllByTitleIsLike("%" + search + "%"));
+        }
+
+
+
     return "todo";
     }
 

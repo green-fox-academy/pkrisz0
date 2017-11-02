@@ -42,5 +42,11 @@
         </td>
     </tr>
 </table>
+
+<form th:action="@{/todo/list}" th:object="${search}" method="get">
+    <input type="search" name="search" placeholder="Search todos" />
+    <button type="submit" value="Submit">Go!</button>
+</form>
+
 </body>
 </html>
