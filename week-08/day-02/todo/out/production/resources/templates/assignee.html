@@ -23,7 +23,7 @@
     <tr th:each="assignee:${assignees}" >
         <td th:text="${assignee.id}"></td>
         <td th:text="${assignee.email}"></td>
-        <td th:text="${assignee.name}" ></td>
+        <td><a th:href="@{'/todo/filter/{assignee}'(assignee=${assignee})}" th:text="${assignee}"></a></td>
         <td>
             <form th:action="@{'/assignee/{id}/delete'(id=${assignee.id})}" th:method="delete" >
                 <button type="submit"> Delete </button>

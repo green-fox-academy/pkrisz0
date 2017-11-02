@@ -9,6 +9,5 @@ import java.util.List;
 public interface TodoRepo extends CrudRepository<Todo, Long> {
     //define queries here, call the methods in controller
     List<Todo> findAllByTitleIsLike(String title);
-    List<Todo> findAllByAssigneeIs(Assignee assignee);
-
+    List<Todo> findAllByAssigneeName(String name);
 }

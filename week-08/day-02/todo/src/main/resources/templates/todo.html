@@ -29,7 +29,7 @@
         <td th:text="${todo.title}"></td>
         <td th:text="${todo.isUrgent()}"></td>
         <td th:text="${todo.isDone()}"></td>
-        <td th:text="${todo.assignee}"></td>
+        <td><a th:href="@{'/todo/filter/{assignee}'(assignee=${todo.assignee})}" th:text="${todo.assignee}"></a></td>
         <td>
             <form th:action="@{'/todo/{id}/delete'(id=${todo.id})}" th:method="delete" >
                 <button type="submit"> Delete </button>

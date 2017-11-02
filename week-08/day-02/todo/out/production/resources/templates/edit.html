@@ -9,15 +9,14 @@
 
 <form th:action="@{/todo/}" th:object="${editedTodo}" method="post">
     <input type="hidden" th:field="*{id}"/>
-    Todo text <input type="text" th:field="*{title}"/>
-    Urgent <input type="checkbox" th:field="*{urgent}" value="true"/>
-    Done <input type="checkbox" th:field="*{done}" value="true"/>
-
+    <p>Todo text <input type="text" th:field="*{title}"/></p>
+    <p><input type="checkbox" th:field="*{urgent}" value="true"/> Urgent</p>
+    <p><input type="checkbox" th:field="*{done}" value="true"/> Done</p>
+    <a th:text="'Responsible:'" />
     <select th:field="*{assignee}">
-        <option th:each="assignee:${assignees}" th:value="${assignee.id}" th:text="${assignee.name}"> </option>
+        <option th:each="assignee:${assignees}" th:value="${assignee.id}" th:text="${assignee.name}" />
     </select>
-
-    <button type="submit" value="Submit">Submit</button>
+    <p><button type="submit" value="Submit">Submit</button></p>
 </form>
 </body>
 </html>

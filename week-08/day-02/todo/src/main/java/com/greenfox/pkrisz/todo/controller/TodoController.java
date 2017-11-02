@@ -29,9 +29,15 @@ public class TodoController {
             model.addAttribute("todos", todoRepo.findAllByTitleIsLike("%" + search + "%"));
         }
 
-
-
     return "todo";
+    }
+
+    @GetMapping("/filter/{assignee}")
+    public String filter(Model model, @PathVariable String assignee){
+        if (assignee != null) {
+            model.addAttribute("todos", todoRepo.findAllByAssigneeName(assignee));
+        }
+        return "todo";
     }
 
     @PostMapping({"/","list"})
@@ -56,7 +62,6 @@ public class TodoController {
     public String editEntry(@PathVariable long id, Model model){
         model.addAttribute("editedTodo", todoRepo.findOne(id));
         model.addAttribute("assignees", assigneeRepo.findAll());
-        model.addAttribute("id", id);
         return "edit";
     }
 }
