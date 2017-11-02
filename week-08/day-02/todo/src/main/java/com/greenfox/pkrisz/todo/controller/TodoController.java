@@ -15,40 +15,34 @@ public class TodoController {
     @Autowired
     TodoRepo todoRepo;
 
-    @RequestMapping({"/","list"})
+    @GetMapping({"/","list"})
     public String list(Model model, @RequestParam(name = "isActive", required = false) Boolean done){
         model.addAttribute("todos", todoRepo.findAll());
         model.addAttribute("done", done);
     return "todo";
     }
 
-    @RequestMapping("/add")
+    @PostMapping({"/","list"})
+    public String save(@ModelAttribute Todo todo){
+        todoRepo.save(todo);
+        return "redirect:/todo/list";
+    }
+
+    @GetMapping("/add")
     public String add(Model model) {
         model.addAttribute("todo", new Todo());
         return "add";
     }
 
-    @PostMapping("/save")
-    public String add(@ModelAttribute Todo todo) {
-        todoRepo.save(todo);
-        return "redirect:/todo/list";
-    }
-
-    @RequestMapping(value="/delete/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping(value="/{id}/delete")
     public String delete(@PathVariable long id) {
         todoRepo.delete(id);
         return "redirect:/todo/list";
     }
 
-    @RequestMapping("/edit/{id}")
+    @GetMapping("/{id}/edit")
     public String editEntry(@PathVariable long id, Model model){
         model.addAttribute("editedTodo", todoRepo.findOne(id));
         return "edit";
-    }
-
-    @RequestMapping(value="/update", method=RequestMethod.POST)
-    public String updateEntry(@ModelAttribute Todo todo){
-        todoRepo.save(todo);
-        return "redirect:/todo/list";
     }
 }

@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1> Add new Todo </h1>
-   <form th:action="@{/todo/save}" method="post" th:object="${todo}">
+   <form th:action="@{/todo/}" method="post" th:object="${todo}">
     <input type="text" value="title" th:field="*{title}"/>
        <button type="submit">Add</button>
    </form>

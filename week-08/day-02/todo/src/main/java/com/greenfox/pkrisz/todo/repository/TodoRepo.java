@@ -4,5 +4,5 @@ import com.greenfox.pkrisz.todo.model.Todo;
 import org.springframework.data.repository.CrudRepository;
 
 public interface TodoRepo extends CrudRepository<Todo, Long> {
-
+    //define queries here, call the methods in controller
 }
