@@ -1,6 +1,7 @@
 package com.greenfox.pkrisz0.reddit;
 
 import com.greenfox.pkrisz0.reddit.repository.PostRepo;
+import com.greenfox.pkrisz0.reddit.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

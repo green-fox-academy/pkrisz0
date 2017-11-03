@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1> Add new Post </h1>
-<form th:action="@{/posts/}" method="post" th:object="${post}">
+<form th:action="@{/posts/}" method="post" th:object="${post}" class="form-horizontal">
     <input type="text" value="title" th:field="*{title}"/>
     <button type="submit">Add</button>
 </form>

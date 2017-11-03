@@ -20,7 +20,7 @@ public class PostController {
 
     @GetMapping({"","/","list"})
     public String list(Model model){
-        model.addAttribute("posts", postRepo.findAll());
+        model.addAttribute("posts", postRepo.findAllByOrderByScoreDesc());
         return "posts";
     }
 

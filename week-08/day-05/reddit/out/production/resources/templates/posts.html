@@ -6,22 +6,28 @@
     <meta charset="utf-8" />
 </head>
 <body>
-<a th:href="@{/posts/add}"> Add new Post</a>
 
 <h1>Posts</h1>
 
 <table>
+    <thead>
     <tr>
-        <th>SCORE</th>
+        <th>Score</th>
         <th>Actions</th>
         <th>Content</th>
+        <th>Date</th>
     </tr>
+    </thead>
     <tr th:each="post:${posts}">
         <td th:text="${post.score}"></td>
-        <td><a th:href="@{'posts/{id}/up'(id=${post.id})}" th:text="'+'"></a><a th:href="@{'posts/{id}/down'(id=${post.id})}" th:text="' -'"></a></td>
+        <td><a th:href="@{'posts/{id}/up'(id=${post.id})}" ><img th:src="@{/up.png}" height="15" width="15"/></a>
+            <a th:href="@{'posts/{id}/down'(id=${post.id})}"> <img th:src="@{/down.jpg}" height="15" width="15"/></a></td>
         <td th:text="${post.title}"></td>
+        <td th:text="${post.created}"></td>
     </tr>
 </table>
-
+<div class="link">
+<a th:href="@{/posts/add}" id="add"> Add new Post</a>
+</div>
 </body>
 </html>
