@@ -18,7 +18,7 @@
     </tr>
     <tr th:each="post:${posts}">
         <td th:text="${post.score}"></td>
-        <td><a th:href="@{'/posts/up'}" th:text="'+'"></a><a th:href="@{'/posts/down'}" th:text="' -'"></a></td>
+        <td><a th:href="@{'posts/{id}/up'(id=${post.id})}" th:text="'+'"></a><a th:href="@{'posts/{id}/down'(id=${post.id})}" th:text="' -'"></a></td>
         <td th:text="${post.title}"></td>
     </tr>
 </table>
