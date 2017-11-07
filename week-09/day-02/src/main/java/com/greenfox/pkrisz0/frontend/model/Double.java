@@ -1,4 +1,4 @@
-package com.greenfox.pkrisz0.frontend.controller;
+package com.greenfox.pkrisz0.frontend.model;
 
 public class Double {
     int received;

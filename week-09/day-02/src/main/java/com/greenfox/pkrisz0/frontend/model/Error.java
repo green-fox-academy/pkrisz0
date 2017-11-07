@@ -1,11 +1,11 @@
-package com.greenfox.pkrisz0.frontend.controller;
+package com.greenfox.pkrisz0.frontend.model;
 
 public class Error {
     String error;
 
 
-    public Error() {
-        this.error = "Please provide an input!";
+    public Error(String error) {
+        this.error = error;
     }
 
     public String getError() {
