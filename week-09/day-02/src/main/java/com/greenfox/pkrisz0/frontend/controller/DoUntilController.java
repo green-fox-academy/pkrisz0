@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class DoUntilController {
 
-
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public Error error(HttpMessageNotReadableException e){
         return new Error("Please provide a number!");
