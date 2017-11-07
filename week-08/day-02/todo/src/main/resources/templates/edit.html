@@ -2,17 +2,17 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title th:text="'Edit todo ' + ${editedTodo.id}"/>
+    <title th:text="'Edit todo ' + ${todo.id}"/>
 </head>
 <body>
-<h1 th:text="'Edit todo ' + ${editedTodo.id}" />
+<h1 th:text="'Edit todo ' + ${todo.id}" />
 
-<form th:action="@{/todo/}" th:object="${editedTodo}" method="post">
+<form th:action="@{/todo/}" th:object="${todo}" method="post">
     <input type="hidden" th:field="*{id}"/>
     <p>Todo text <input type="text" th:field="*{title}"/></p>
     <p><input type="checkbox" th:field="*{urgent}" value="true"/> Urgent</p>
     <p><input type="checkbox" th:field="*{done}" value="true"/> Done</p>
-    <!--<p> Due Date <input type="date" th:field="*{due}"/></p>-->
+    <p> Due Date <input type="date" name="due" th:value="*{due}"/></p>
     <a th:text="'Responsible:'" />
     <select th:field="*{assignee}">
         <option th:each="assignee:${assignees}" th:value="${assignee.id}" th:text="${assignee.name}" />

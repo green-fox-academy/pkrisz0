@@ -32,7 +32,7 @@ public class PostController {
 
     @GetMapping("/add")
     public String add(Model model){
-        model.addAttribute("post", new Post() );
+        model.addAttribute("post", new Post());
         return "add";
     }
 

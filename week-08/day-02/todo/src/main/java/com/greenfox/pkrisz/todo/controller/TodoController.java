@@ -8,6 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.DateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 
 @Controller
 @RequestMapping("/todo")
@@ -59,7 +63,7 @@ public class TodoController {
 
     @GetMapping("/{id}/edit")
     public String editEntry(@PathVariable long id, Model model){
-        model.addAttribute("editedTodo", todoRepo.findOne(id));
+        model.addAttribute("todo", todoRepo.findOne(id));
         model.addAttribute("assignees", assigneeRepo.findAll());
         return "edit";
     }

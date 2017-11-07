@@ -20,7 +20,7 @@ public class Todo {
     @DateTimeFormat(pattern = "mm/dd/yyyy")
     LocalDate created;
 
-    @DateTimeFormat(pattern = "mm/dd/yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     LocalDate due;
 
     @ManyToOne (cascade =CascadeType.ALL)
@@ -28,7 +28,7 @@ public class Todo {
 
     public Todo() {
         this.created = LocalDate.now();
-        this.due = LocalDate.now().plusYears(1);
+        this.due = created;
     }
 
     public Todo(String title) {
@@ -36,7 +36,7 @@ public class Todo {
         this.urgent = false;
         this.done = false;
         this.created = LocalDate.now();
-        this.due = LocalDate.now().plusYears(1);
+        this.due = created;
     }
 
     public long getId() {

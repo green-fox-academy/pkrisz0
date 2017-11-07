@@ -1,6 +1,7 @@
 package com.greenfox.pkrisz.todo.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="assignees")
@@ -9,6 +10,9 @@ public class Assignee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     long id;
+
+    @OneToMany (mappedBy = "assignee", orphanRemoval = true)
+    List<Todo> todos;
 
     String name;
     String email;
