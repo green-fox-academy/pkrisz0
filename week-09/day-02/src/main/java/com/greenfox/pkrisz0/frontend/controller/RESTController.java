@@ -1,16 +1,13 @@
 package com.greenfox.pkrisz0.frontend.controller;
 
+import com.greenfox.pkrisz0.frontend.model.Append;
 import com.greenfox.pkrisz0.frontend.model.Double;
 import com.greenfox.pkrisz0.frontend.model.Error;
 
 import com.greenfox.pkrisz0.frontend.model.Greeting;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.UnsatisfiedServletRequestParameterException;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -37,5 +34,11 @@ public class RESTController {
     public Error error(MissingServletRequestParameterException stg){
         String error = stg.getParameterName();
         return new Error("Please provide a " + error + "!");
+    }
+
+    @GetMapping(value = "/appenda/{appendable}")
+    public Object append(@PathVariable String appendable){
+        Append a = new Append(appendable);
+        return a;
     }
 }
