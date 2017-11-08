@@ -15,6 +15,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.nio.charset.Charset;
 
+import static org.hamcrest.Matchers.arrayWithSize;
+import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.core.Is.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -143,7 +145,7 @@ public class TestingTheHellOut {
                 .content("{\"numbers\": [1,2,5,10], \"what\": \"double\"}"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(contentType))
-                .andExpect(jsonPath("$.result", is("[2,4,10,20]")))
-                .andExpect(jsonPath("$.result", Matchers.containsInAnyOrder(2,4,10,20)));
+                .andExpect(jsonPath("$.result", Matchers.contains(2,4,10,20)))
+                .andExpect(jsonPath("$.result", Matchers.arrayWithSize(4)));
     }
 }
