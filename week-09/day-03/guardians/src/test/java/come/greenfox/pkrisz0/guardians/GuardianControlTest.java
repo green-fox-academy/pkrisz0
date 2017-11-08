@@ -88,4 +88,12 @@ public class GuardianControlTest {
                 .andExpect(content().contentType(contentType))
                 .andExpect(jsonPath("$.error", is("Please add a value for time!")));
     }
+
+    @Test
+    public void guardiansYonduErrorDistanceTest() throws Exception {
+        mockMvc.perform(get("/yondu?time=100.0"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(contentType))
+                .andExpect(jsonPath("$.error", is("Please add a value for distance!")));
+    }
 }

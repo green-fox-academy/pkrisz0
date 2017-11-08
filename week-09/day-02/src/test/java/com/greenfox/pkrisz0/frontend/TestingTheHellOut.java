@@ -146,6 +146,6 @@ public class TestingTheHellOut {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(contentType))
                 .andExpect(jsonPath("$.result", Matchers.contains(2,4,10,20)))
-                .andExpect(jsonPath("$.result", Matchers.arrayWithSize(4)));
+                .andExpect(jsonPath("$.result", Matchers.hasSize(4)));
     }
 }
