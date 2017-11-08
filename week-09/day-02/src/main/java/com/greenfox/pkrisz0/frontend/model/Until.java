@@ -1,7 +1,7 @@
 package com.greenfox.pkrisz0.frontend.model;
 
 public class Until {
-    int until;
+    Integer until;
 
     public Until(int until) {
         this.until = until;
@@ -10,8 +10,7 @@ public class Until {
     public Until() {
     }
 
-
-    public int getUntil() {
+    public Integer getUntil() {
         return until;
     }
 

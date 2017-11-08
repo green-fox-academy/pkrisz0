@@ -8,20 +8,19 @@ public class DoesUntil {
     }
 
     public DoesUntil(String what, int until) {
-        this.result = 0;
         if (what.equals("sum")){
-            this.sum(until);
+            this.result = sum(until);
         } if (what.equals("factor")){
-            this.factor(until);
+            this.result = factor(until);
         }
     }
 
-
     public int sum(int until){
+        int sum = 0;
         for (int i = 1; i <= until; i++) {
-            result += i;
+            sum += i;
         }
-        return result;
+        return sum;
     }
 
     public int factor(int until){
@@ -29,8 +28,8 @@ public class DoesUntil {
         for (int i = 1; i <= until; i++) {
             end *= i;
         }
-        result = end;
-        return result;
+        int temp = end;
+        return temp;
     }
 
     public int getResult() {
@@ -40,5 +39,4 @@ public class DoesUntil {
     public void setResult(int result) {
         this.result = result;
     }
-
 }

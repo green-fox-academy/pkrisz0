@@ -13,8 +13,7 @@ public class GreetingController {
 
     @GetMapping(value = "/greeter")
     public Object greeter(@RequestParam (value = "name") String name, @RequestParam (value = "title")  String title){
-        Greeting g = new Greeting(name, title);
-        return g;
+        return new Greeting(name, title);
     }
 
     @ExceptionHandler(MissingServletRequestParameterException.class)
