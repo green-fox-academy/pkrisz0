@@ -2,7 +2,6 @@ package come.greenfox.pkrisz0.guardians.model;
 
 public class Ship {
 
-    // max 12500
     int caliber25;
     int caliber30;
     int caliber50;
@@ -13,8 +12,8 @@ public class Ship {
         this.caliber25 = 0;
         this.caliber30 = 0;
         this.caliber50 = 0;
-        this.shipstatus = shipStatus();
-        this.ready = readyToGo();
+        this.shipstatus = "empty";
+        this.ready = false;
     }
 
     public void fill(String received, int amount){
@@ -25,21 +24,23 @@ public class Ship {
          } else {
              this.caliber25 += amount;
          }
+
+         updateStatus();
+         this.ready = readyToGo();
     }
 
-    public String shipStatus(){
-        int ammo = this.caliber50 + this.caliber30 + this.caliber25;
+    private void updateStatus(){
+        int ammo = this.caliber50 + this.caliber25 + this.caliber30;
         int max = 12500;
-        String status;
         if (ammo > max){
-            status = "overloaded";
+            this.shipstatus = "overloaded";
         } else if (ammo == max) {
-            status = "full";
+            this.shipstatus = "full";
         } else if (ammo < max && ammo > 0) {
-            status = (ammo * 100 / max) + "%";
+            this.shipstatus = (ammo * 100 / max) + "%";
         } else {
-            status = "empty";
-        } return status;
+            this.shipstatus = "empty";
+        }
     }
 
     public boolean readyToGo(){
