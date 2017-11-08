@@ -3,15 +3,19 @@ package come.greenfox.pkrisz0.guardians.controller;
 
 import come.greenfox.pkrisz0.guardians.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Arrays;
+import java.util.List;
 
 @RestController
 public class GuardianController {
 
     @Autowired
     Ship ship;
+
+    @Autowired
+    FoodTable foodtable;
 
     @GetMapping(value = "/groot")
     public Object groot(@RequestParam(required = false) String message){
@@ -46,4 +50,40 @@ public class GuardianController {
         ship.fill(caliber, amount);
         return new Fill(caliber, amount, ship.getShipstatus(), ship.isReady());
     }
+
+    @GetMapping(value = "/drax")
+    public List<Food> draxList(){
+        return foodtable;
+    }
+
+    @PutMapping (value = "/drax/add")
+    public List<Food> addFood(
+            @RequestParam (value = "foodName", required = false) String foodName,
+            @RequestParam (value = "foodAmount") int foodAmount,
+            @RequestParam (value = "foodCalorie") int foodCalorie
+    ){
+        foodtable.add(new Food(foodName,foodAmount,foodCalorie));
+        return foodtable;
+    }
+
+    @DeleteMapping(value = "/drax/remove")
+    public Object removeFood(@RequestParam (value = "foodName", required = false) String foodName){
+        if (foodtable.findFoodPosition(foodName) != null) {
+            foodtable.remove(foodtable.findFoodPosition(foodName));
+            return foodtable;
+        } else {
+            return new Fehlermeldung("No " + foodName + " among Drax Foods");
+        }
+    }
+
+    @PutMapping (value = "/drax/editfood")
+    public List<Food> editFood(
+            @RequestParam (value = "foodName", required = false) String foodName,
+            @RequestParam (value = "foodCalorie") int foodCalorie
+    ){
+        foodtable.get(foodtable.findFoodPosition(foodName)).setFoodCalorie(foodCalorie);
+        return foodtable;
+    }
+
+
 }
