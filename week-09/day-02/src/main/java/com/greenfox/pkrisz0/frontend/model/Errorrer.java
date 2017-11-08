@@ -1,10 +1,10 @@
 package com.greenfox.pkrisz0.frontend.model;
 
-public class Error {
+public class Errorrer {
     String error;
 
 
-    public Error(String error) {
+    public Errorrer(String error) {
         this.error = error;
     }
 

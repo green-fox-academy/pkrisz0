@@ -1,6 +1,6 @@
 package com.greenfox.pkrisz0.frontend.controller;
 
-import com.greenfox.pkrisz0.frontend.model.Error;
+import com.greenfox.pkrisz0.frontend.model.Errorrer;
 
 import com.greenfox.pkrisz0.frontend.model.Greeting;
 import org.springframework.web.bind.MissingServletRequestParameterException;
@@ -17,9 +17,9 @@ public class GreetingController {
     }
 
     @ExceptionHandler(MissingServletRequestParameterException.class)
-    public Error error(MissingServletRequestParameterException stg){
+    public Errorrer error(MissingServletRequestParameterException stg){
         String error = stg.getParameterName();
-        return new Error("Please provide a " + error + "!");
+        return new Errorrer("Please provide a " + error + "!");
     }
 
 }

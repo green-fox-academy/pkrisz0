@@ -3,7 +3,7 @@ package com.greenfox.pkrisz0.frontend.model;
 public class Until {
     Integer until;
 
-    public Until(int until) {
+    public Until(Integer until) {
         this.until = until;
     }
 
@@ -14,7 +14,7 @@ public class Until {
         return until;
     }
 
-    public void setUntil(int until) {
+    public void setUntil(Integer until) {
         this.until = until;
     }
 }
