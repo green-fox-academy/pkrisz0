@@ -62,28 +62,30 @@ public class GuardianController {
             @RequestParam (value = "foodAmount") int foodAmount,
             @RequestParam (value = "foodCalorie") int foodCalorie
     ){
-        foodtable.add(new Food(foodName,foodAmount,foodCalorie));
+        foodtable.add(new Food(foodName,foodAmount,foodCalorie, foodtable.size() + 1));
         return foodtable;
     }
 
     @DeleteMapping(value = "/drax/remove")
-    public Object removeFood(@RequestParam (value = "foodName", required = false) String foodName){
-        if (foodtable.findFoodPosition(foodName) != null) {
-            foodtable.remove(foodtable.findFoodPosition(foodName));
+    public Object removeFood(@RequestParam (value = "foodId", required = false) int foodId){
+        if (foodtable.containsById(foodId - 1) == true) {
+            foodtable.remove(foodId - 1);
             return foodtable;
         } else {
-            return new Fehlermeldung("No " + foodName + " among Drax Foods");
+            return new Fehlermeldung("No food with this id among Drax Foods");
         }
     }
 
     @PutMapping (value = "/drax/editfood")
-    public List<Food> editFood(
-            @RequestParam (value = "foodName", required = false) String foodName,
+    public Object editFood(
+            @RequestParam (value = "foodId", required = false) int foodId,
             @RequestParam (value = "foodCalorie") int foodCalorie
     ){
-        foodtable.get(foodtable.findFoodPosition(foodName)).setFoodCalorie(foodCalorie);
-        return foodtable;
+        if (foodtable.containsById(foodId) == true) {
+            foodtable.get(foodId - 1).setFoodCalorie(foodCalorie);
+            return foodtable;
+        } else {
+            return new Fehlermeldung("No food wid this id among Drax Foods");
+        }
     }
-
-
 }

@@ -5,11 +5,13 @@ public class Food {
     String foodName;
     int foodAmount;
     int foodCalorie;
+    int id;
 
-    public Food(String foodName, int foodAmount, int foodCalorie) {
+    public Food(String foodName, int foodAmount, int foodCalorie, int id) {
         this.foodName = foodName;
         this.foodAmount = foodAmount;
         this.foodCalorie = foodCalorie;
+        this.id = id;
     }
 
     public String getFoodName() {
@@ -34,5 +36,13 @@ public class Food {
 
     public void setFoodCalorie(int foodCalorie) {
         this.foodCalorie = foodCalorie;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

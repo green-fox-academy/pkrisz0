@@ -16,6 +16,5 @@ public class ModelConfig {
     @Bean
     public FoodTable foodTable() {
         return new FoodTable();
-
     }
 }
