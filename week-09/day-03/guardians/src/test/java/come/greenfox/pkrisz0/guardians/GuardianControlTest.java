@@ -54,4 +54,38 @@ public class GuardianControlTest {
                 .andExpect(content().contentType(contentType))
                 .andExpect(jsonPath("$.error", is("I am Groot!")));
     }
+
+    @Test
+    public void guardiansYonduTest() throws Exception {
+        mockMvc.perform(get("/yondu?distance=100.0&time=500"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(contentType))
+                .andExpect(jsonPath("$.speed", is(0.2)));
+    }
+
+    @Test
+    public void guardiansYonduInfinityTest() throws Exception {
+        mockMvc.perform(get("/yondu?distance=100.0&time=0"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(contentType))
+                .andExpect(jsonPath("$.speed", is("Infinity")));
+    }
+
+    @Test
+    public void guardiansYonduErrorTest() throws Exception {
+        mockMvc.perform(get("/yondu"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(contentType))
+                .andExpect(jsonPath("$.error", is("When I picked you up as a kid, " +
+                        "these boys wanted to eat you. They ain't never tasted Terran before. " +
+                        "I saved your life! GIVE SOME PARAMETERS")));
+    }
+
+    @Test
+    public void guardiansYonduErrorTimeTest() throws Exception {
+        mockMvc.perform(get("/yondu?distance=100.0"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(contentType))
+                .andExpect(jsonPath("$.error", is("Please add a value for time!")));
+    }
 }
