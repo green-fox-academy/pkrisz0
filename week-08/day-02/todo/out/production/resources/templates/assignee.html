@@ -2,17 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Assignee List</title>
-    <link rel="stylesheet" th:href="@{/style.css}" />
+    <link rel="stylesheet" href="/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/style.css"/>
     <meta charset="utf-8" />
 </head>
 <body>
-<h1>Assignees:</h1>
+<div class="container">
+<div class="page-header">
+    <h1 class="panel-title">Assignees</h1>
+</div>
 
-<a th:href="@{/assignee/add}"> Add new Assignee</a>
-<a th:href="@{/todo}"> Back to ToDos</a>
-
-
-<table>
+<table class="table table-bordered">
     <tr>
         <th>Id</th>
         <th>E-Mail</th>
@@ -26,15 +26,18 @@
         <td><a th:href="@{'/todo/filter/{assignee}'(assignee=${assignee})}" th:text="${assignee}"></a></td>
         <td>
             <form th:action="@{'/assignee/{id}/delete'(id=${assignee.id})}" th:method="delete" >
-                <button type="submit"> Delete </button>
+                <button class="btn btn-danger" type="submit"> Delete </button>
             </form>
         </td>
         <td>
             <form th:action="@{'/assignee/{id}/edit'(id=${assignee.id})}">
-                <button type="submit"> Edit </button>
+                <button class="btn btn-danger" type="submit"> Edit </button>
             </form>
         </td>
     </tr>
 </table>
+    <a class="btn btn-success" th:href="@{/assignee/add}"> Add new Assignee</a>
+    <a class="btn btn-success" th:href="@{/todo}"> Back to ToDos</a>
+</div>
 </body>
 </html>

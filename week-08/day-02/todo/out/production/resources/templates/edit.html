@@ -2,10 +2,17 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/style.css"/>
     <title th:text="'Edit todo ' + ${todo.id}"/>
 </head>
 <body>
-<h1 th:text="'Edit todo ' + ${todo.id}" />
+<div class="container">
+
+
+    <div class="page-header">
+        <h1 th:text="'Edit todo ' + ${todo.id}" />
+    </div>
 
 <form th:action="@{/todo/}" th:object="${todo}" method="post">
     <input type="hidden" th:field="*{id}"/>
@@ -18,7 +25,8 @@
         <option th:each="assignee:${assignees}" th:value="${assignee.id}" th:text="${assignee.name}" />
     </select>
 
-    <p><button type="submit" value="Submit">Submit</button></p>
+    <p><button class="btn btn-danger"  type="submit" value="Submit">Submit</button></p>
 </form>
+</div>
 </body>
 </html>

@@ -2,55 +2,70 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Todo List</title>
-    <link rel="stylesheet" th:href="@{/style.css}" />
+    <link rel="stylesheet" href="/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/style.css"/>
     <meta charset="utf-8" />
 </head>
 <body>
-<h1>Todos for today:</h1>
+<div class="container">
+        <div class="page-header">
+            <h1 class="panel-title">Todos for today</h1>
+        </div>
+        <div class = "alert alert-danger">
+            <strong>A list of todos for today</strong>
+        </div>
 
-<a th:href="@{/todo/add}"> Add new Todo</a>
-<a th:href="@{/assignee}"> Assignees</a>
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Action</th>
+            <th>Urgent</th>
+            <th>Done</th>
+            <th>Assignee</th>
+            <th>Created on</th>
+            <th>Due on</th>
+            <th>Delete</th>
+            <th>Edit</th>
+         </tr>
+        </thead>
+        <tbody>
+           <tr th:each="todo:${todos}" th:if="${todo.done}!=${done}">
+               <td th:text="${todo.id}"></td>
+               <td th:text="${todo.title}"></td>
+               <td th:text="${todo.isUrgent()}"></td>
+               <td th:text="${todo.isDone()}"></td>
+               <td><a th:href="@{'/todo/filter/{assignee}'(assignee=${todo.assignee})}" th:text="${todo.assignee}"></a></td>
+               <td th:text="${todo.created}"/>
+               <td th:text="${todo.due}"/>
+               <td>
+                  <form th:action="@{'/todo/{id}/delete'(id=${todo.id})}" th:method="delete" >
+                     <button class="btn btn-danger" type="submit"> Delete </button>
+                  </form>
+               </td>
+               <td>
+                   <form th:action="@{'/todo/{id}/edit'(id=${todo.id})}">
+                       <button class="btn btn-danger" type="submit"> Edit </button>
+                   </form>
+               </td>
+            </tr>
+        </tbody>
+    </table>
 
 
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Action</th>
-        <th>Urgent</th>
-        <th>Done</th>
-        <th>Assignee</th>
-        <th>Created on</th>
-        <th>Due on</th>
-        <th>Delete</th>
-        <th>Edit</th>
+    <div class="buttonshere">
+       <a class="btn btn-success" th:href="@{/todo/add}"> Add new Todo</a>
+        <a class="btn btn-success" th:href="@{/assignee}"> Assignees</a>
+    </div>
 
-    </tr>
-    <tr th:each="todo:${todos}"
-        th:if="${todo.done}!=${done}">
-        <td th:text="${todo.id}"></td>
-        <td th:text="${todo.title}"></td>
-        <td th:text="${todo.isUrgent()}"></td>
-        <td th:text="${todo.isDone()}"></td>
-        <td><a th:href="@{'/todo/filter/{assignee}'(assignee=${todo.assignee})}" th:text="${todo.assignee}"></a></td>
-        <td th:text="${todo.created}"/>
-        <td th:text="${todo.due}"/>
-        <td>
-            <form th:action="@{'/todo/{id}/delete'(id=${todo.id})}" th:method="delete" >
-                <button type="submit"> Delete </button>
-            </form>
-        </td>
-        <td>
-            <form th:action="@{'/todo/{id}/edit'(id=${todo.id})}">
-                <button type="submit"> Edit </button>
-            </form>
-        </td>
-    </tr>
-</table>
 
-<form th:action="@{/todo/list}" th:object="${search}" method="get">
-    <input type="search" name="search" placeholder="Search todos" />
-    <button type="submit" value="Submit">Go!</button>
-</form>
+    <form th:action="@{/todo/list}" th:object="${search}" method="get">
+        <div class="search">
+            <button class="btn btn-danger" type="submit" value="Submit">Go!</button>
+            <input class="form-control" type="search" name="search" placeholder="Search todos" />
+        </div>
+    </form>
 
+</div>
 </body>
 </html>
