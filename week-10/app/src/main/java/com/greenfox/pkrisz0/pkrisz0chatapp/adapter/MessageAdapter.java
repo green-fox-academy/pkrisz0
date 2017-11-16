@@ -33,13 +33,11 @@ public class MessageAdapter extends ArrayAdapter<Message>{
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.message, parent, false);
         }
 
-        TextView username = (TextView) convertView.findViewById(R.id.username);
+        TextView username =  convertView.findViewById(R.id.username);
         username.setText(current.getUsername());
 
-        TextView text = (TextView) convertView.findViewById(R.id.text);
+        TextView text = convertView.findViewById(R.id.text);
         text.setText(current.getText());
-
-
 
         return convertView;
     }
