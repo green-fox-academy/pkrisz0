@@ -2,8 +2,9 @@ import java.util.Arrays;
 
 public class Anagram {
     public static void main(String[] args) {
+        System.out.println(anagram("god", "dog"));
+        System.out.println(anagram("god", "garden"));
 
-        anagram("god", "dog");
     }
 
     public static boolean anagram(String inputone, String inputtwo) {
