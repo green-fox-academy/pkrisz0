@@ -10,9 +10,7 @@ public class Exercise12 {
         input.add(new ArrayList<Integer>(Arrays.asList(3,3,3,3)));
         input.add(new ArrayList<Integer>(Arrays.asList(4,4,4,4)));
 
-        for (int i = 0; i < input.size(); i++) {
-            System.out.println(exerciseTwelve(input)[i]);
-        }
+        System.out.println(Arrays.toString(exerciseTwelve(input)));
     }
 
     public static int[] exerciseTwelve(List<List<Integer>> inputList){
