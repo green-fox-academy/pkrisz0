@@ -1,3 +1,5 @@
+package main.java.pirates;
+
 public class Pirates {
     int intoxication;
     int drinkCount;

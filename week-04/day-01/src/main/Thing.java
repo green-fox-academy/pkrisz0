@@ -1,3 +1,5 @@
+package main.java;
+
 /**
  * Created by aze on 2017.03.29..
  */

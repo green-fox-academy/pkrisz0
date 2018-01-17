@@ -1,3 +1,5 @@
+package main.java;
+
 public class Animal {
     String name;
     int hunger;

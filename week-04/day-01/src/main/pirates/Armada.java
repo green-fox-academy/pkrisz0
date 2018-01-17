@@ -1,3 +1,5 @@
+package main.java.pirates;
+
 import java.util.ArrayList;
 
 public class Armada extends ArrayList<Ship> {
@@ -19,7 +21,7 @@ public class Armada extends ArrayList<Ship> {
             shipsName++;
         }
         for (int i = 0; i < this.initialCapacity; i++) {
-            this.get(i).fillShip(); //pirates
+            this.get(i).fillShip(); //main.java.pirates
         }
     }
 

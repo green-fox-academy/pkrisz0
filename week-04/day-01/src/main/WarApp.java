@@ -1,3 +1,7 @@
+package main.java;
+
+import main.java.pirates.Armada;
+
 public class WarApp {
     public static void main(String[] args) {
         Armada spanish = new Armada("Spanish");

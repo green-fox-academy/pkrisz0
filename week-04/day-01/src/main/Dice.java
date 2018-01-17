@@ -1,4 +1,4 @@
-import java.util.Arrays;
+package main.java;
 
 public class Dice {
 //    You have a Dice class which has 6 dice

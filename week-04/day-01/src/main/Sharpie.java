@@ -1,3 +1,5 @@
+package main.java;
+
 public class Sharpie {
     String color;
     float width;
